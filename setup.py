@@ -13,7 +13,8 @@ setup(name='tap-google-ads',
           'singer-python @ git+https://github.com/peliqan-io/singer-python@master',
           'requests==2.32.4',
           'backoff==2.2.1',
-          'google-ads==27.0.0',
+          'google-ads<=27.0.0',
+          'google-api-core==2.27.0',
           'protobuf==6.31.1',
 
           # Necessary to handle gRPC exceptions properly, documented
