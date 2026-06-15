@@ -2,6 +2,7 @@
 
 ## v2.1.0
   * Updates API version to 21
+  * Updates pkg version to 28.0.0
   * [#11](https://github.com/Peliqan-io/tap-google-ads/pull/11)
 
 ## v2.0.0
