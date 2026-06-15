@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.1.0
+  * Updates API version to 21
+  * [#11](https://github.com/Peliqan-io/tap-google-ads/pull/11)
+
 ## v2.0.0
   * Updates API version to 20
   * Add new stream `assets`
