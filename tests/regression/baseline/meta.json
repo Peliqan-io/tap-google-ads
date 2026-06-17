@@ -1,7 +1,11 @@
 {
   "python_version": "3.12.13",
   "streams": [
+    "accessible_bidding_strategies",
     "accounts",
+    "ad_groups",
+    "ads",
+    "campaign_budgets",
     "campaigns"
   ]
 }

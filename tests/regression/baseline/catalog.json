@@ -16,6 +16,364 @@
         {
           "breadcrumb": [
             "properties",
+            "id"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "accessible_bidding_strategy.id"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "maximize_conversion_value"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "accessible_bidding_strategy.maximize_conversion_value.target_roas"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "maximize_conversions"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "accessible_bidding_strategy.maximize_conversions.target_cpa_micros"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "name"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "accessible_bidding_strategy.name"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "owner_customer_id"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "accessible_bidding_strategy.owner_customer_id"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "owner_descriptive_name"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "accessible_bidding_strategy.owner_descriptive_name"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "resource_name"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "accessible_bidding_strategy.resource_name"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "target_cpa"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "accessible_bidding_strategy.target_cpa.target_cpa_micros"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "target_impression_share"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "accessible_bidding_strategy.target_impression_share.cpc_bid_ceiling_micros",
+              "accessible_bidding_strategy.target_impression_share.location",
+              "accessible_bidding_strategy.target_impression_share.location_fraction_micros"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "target_roas"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "accessible_bidding_strategy.target_roas.target_roas"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "target_spend"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "accessible_bidding_strategy.target_spend.cpc_bid_ceiling_micros",
+              "accessible_bidding_strategy.target_spend.target_spend_micros"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "type"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "accessible_bidding_strategy.type"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "customer_id"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "customer.id"
+            ]
+          }
+        }
+      ],
+      "schema": {
+        "properties": {
+          "customer_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "maximize_conversion_value": {
+            "properties": {
+              "target_roas": {
+                "format": "singer.decimal",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "maximize_conversions": {
+            "properties": {
+              "target_cpa_micros": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "owner_customer_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "owner_descriptive_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "resource_name": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "target_cpa": {
+            "properties": {
+              "target_cpa_micros": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "target_impression_share": {
+            "properties": {
+              "cpc_bid_ceiling_micros": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "location": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "location_fraction_micros": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "target_roas": {
+            "properties": {
+              "target_roas": {
+                "format": "singer.decimal",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "target_spend": {
+            "properties": {
+              "cpc_bid_ceiling_micros": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "target_spend_micros": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "stream": "accessible_bidding_strategies",
+      "tap_stream_id": "accessible_bidding_strategies"
+    },
+    {
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "forced-replication-method": "FULL_TABLE",
+            "inclusion": "available",
+            "selected": true,
+            "table-key-properties": [
+              "id"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
             "auto_tagging_enabled"
           ],
           "metadata": {
@@ -717,6 +1075,3767 @@
       },
       "stream": "accounts",
       "tap_stream_id": "accounts"
+    },
+    {
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "forced-replication-method": "FULL_TABLE",
+            "inclusion": "available",
+            "selected": true,
+            "table-key-properties": [
+              "id"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "accessible_bidding_strategy_id"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "accessible_bidding_strategy.id"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ad_rotation_mode"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.ad_rotation_mode"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ai_max_ad_group_setting"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.ai_max_ad_group_setting.disable_search_term_matching"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "audience_setting"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.audience_setting.use_audience_grouped"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "base_ad_group"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.base_ad_group"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "campaign"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.campaign"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "cpc_bid_micros"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.cpc_bid_micros"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "cpm_bid_micros"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.cpm_bid_micros"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "cpv_bid_micros"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.cpv_bid_micros"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "demand_gen_ad_group_settings"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.demand_gen_ad_group_settings.channel_controls.channel_config",
+              "ad_group.demand_gen_ad_group_settings.channel_controls.channel_strategy",
+              "ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.discover",
+              "ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.display",
+              "ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.gmail",
+              "ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.youtube_in_feed",
+              "ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.youtube_in_stream",
+              "ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.youtube_shorts"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "display_custom_bid_dimension"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.display_custom_bid_dimension"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "effective_cpc_bid_micros"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.effective_cpc_bid_micros"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "effective_target_cpa_micros"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.effective_target_cpa_micros"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "effective_target_cpa_source"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.effective_target_cpa_source"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "effective_target_roas"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.effective_target_roas"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "effective_target_roas_source"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.effective_target_roas_source"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "exclude_demographic_expansion"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.exclude_demographic_expansion"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "excluded_parent_asset_field_types"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.excluded_parent_asset_field_types"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "excluded_parent_asset_set_types"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.excluded_parent_asset_set_types"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "final_url_suffix"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.final_url_suffix"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "fixed_cpm_micros"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.fixed_cpm_micros"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "id"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.id"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "labels"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.labels"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "name"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.name"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "optimized_targeting_enabled"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.optimized_targeting_enabled"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "percent_cpc_bid_micros"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.percent_cpc_bid_micros"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "primary_status"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.primary_status"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "primary_status_reasons"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.primary_status_reasons"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "resource_name"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.resource_name"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "status"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.status"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "target_cpa_micros"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.target_cpa_micros"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "target_cpm_micros"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.target_cpm_micros"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "target_cpv_micros"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.target_cpv_micros"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "target_roas"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.target_roas"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "targeting_setting"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.targeting_setting.target_restrictions"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "tracking_url_template"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.tracking_url_template"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "type"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.type"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "url_custom_parameters"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.url_custom_parameters"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "video_ad_group_settings"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.video_ad_group_settings.video_ad_sequence.step_id"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "bidding_strategy_id"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "bidding_strategy.id"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "campaign_id"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign.id"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "customer_id"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "customer.id"
+            ]
+          }
+        }
+      ],
+      "schema": {
+        "properties": {
+          "accessible_bidding_strategy_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "ad_rotation_mode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "ai_max_ad_group_setting": {
+            "properties": {
+              "disable_search_term_matching": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "audience_setting": {
+            "properties": {
+              "use_audience_grouped": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "base_ad_group": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "bidding_strategy_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "campaign": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "campaign_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "cpc_bid_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "cpm_bid_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "cpv_bid_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "customer_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "demand_gen_ad_group_settings": {
+            "properties": {
+              "channel_controls": {
+                "properties": {
+                  "channel_config": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "channel_strategy": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "selected_channels": {
+                    "properties": {
+                      "discover": {
+                        "type": [
+                          "null",
+                          "boolean"
+                        ]
+                      },
+                      "display": {
+                        "type": [
+                          "null",
+                          "boolean"
+                        ]
+                      },
+                      "gmail": {
+                        "type": [
+                          "null",
+                          "boolean"
+                        ]
+                      },
+                      "youtube_in_feed": {
+                        "type": [
+                          "null",
+                          "boolean"
+                        ]
+                      },
+                      "youtube_in_stream": {
+                        "type": [
+                          "null",
+                          "boolean"
+                        ]
+                      },
+                      "youtube_shorts": {
+                        "type": [
+                          "null",
+                          "boolean"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "display_custom_bid_dimension": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "effective_cpc_bid_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "effective_target_cpa_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "effective_target_cpa_source": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "effective_target_roas": {
+            "format": "singer.decimal",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "effective_target_roas_source": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "exclude_demographic_expansion": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "excluded_parent_asset_field_types": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "excluded_parent_asset_set_types": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "final_url_suffix": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "fixed_cpm_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "labels": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "optimized_targeting_enabled": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "percent_cpc_bid_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "primary_status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "primary_status_reasons": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "resource_name": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "target_cpa_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "target_cpm_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "target_cpv_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "target_roas": {
+            "format": "singer.decimal",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "targeting_setting": {
+            "properties": {
+              "target_restrictions": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "tracking_url_template": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "url_custom_parameters": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "video_ad_group_settings": {
+            "properties": {
+              "video_ad_sequence": {
+                "properties": {
+                  "step_id": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "stream": "ad_groups",
+      "tap_stream_id": "ad_groups"
+    },
+    {
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "forced-replication-method": "FULL_TABLE",
+            "inclusion": "available",
+            "selected": true,
+            "table-key-properties": [
+              "id"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ad_group_id"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.id"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "action_items"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.action_items"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "added_by_google_ads"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.added_by_google_ads"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "app_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.app_ad.app_deep_link",
+              "ad_group_ad.ad.app_ad.descriptions",
+              "ad_group_ad.ad.app_ad.headlines",
+              "ad_group_ad.ad.app_ad.html5_media_bundles",
+              "ad_group_ad.ad.app_ad.images",
+              "ad_group_ad.ad.app_ad.mandatory_ad_text",
+              "ad_group_ad.ad.app_ad.youtube_videos"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "app_engagement_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.app_engagement_ad.descriptions",
+              "ad_group_ad.ad.app_engagement_ad.headlines",
+              "ad_group_ad.ad.app_engagement_ad.images",
+              "ad_group_ad.ad.app_engagement_ad.videos"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "app_pre_registration_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.app_pre_registration_ad.descriptions",
+              "ad_group_ad.ad.app_pre_registration_ad.headlines",
+              "ad_group_ad.ad.app_pre_registration_ad.images",
+              "ad_group_ad.ad.app_pre_registration_ad.youtube_videos"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "call_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.call_ad.business_name",
+              "ad_group_ad.ad.call_ad.call_tracked",
+              "ad_group_ad.ad.call_ad.conversion_action",
+              "ad_group_ad.ad.call_ad.conversion_reporting_state",
+              "ad_group_ad.ad.call_ad.country_code",
+              "ad_group_ad.ad.call_ad.description1",
+              "ad_group_ad.ad.call_ad.description2",
+              "ad_group_ad.ad.call_ad.disable_call_conversion",
+              "ad_group_ad.ad.call_ad.headline1",
+              "ad_group_ad.ad.call_ad.headline2",
+              "ad_group_ad.ad.call_ad.path1",
+              "ad_group_ad.ad.call_ad.path2",
+              "ad_group_ad.ad.call_ad.phone_number",
+              "ad_group_ad.ad.call_ad.phone_number_verification_url"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "demand_gen_carousel_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.demand_gen_carousel_ad.business_name",
+              "ad_group_ad.ad.demand_gen_carousel_ad.call_to_action_text",
+              "ad_group_ad.ad.demand_gen_carousel_ad.carousel_cards",
+              "ad_group_ad.ad.demand_gen_carousel_ad.description",
+              "ad_group_ad.ad.demand_gen_carousel_ad.headline",
+              "ad_group_ad.ad.demand_gen_carousel_ad.logo_image"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "demand_gen_multi_asset_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.demand_gen_multi_asset_ad.business_name",
+              "ad_group_ad.ad.demand_gen_multi_asset_ad.call_to_action_text",
+              "ad_group_ad.ad.demand_gen_multi_asset_ad.descriptions",
+              "ad_group_ad.ad.demand_gen_multi_asset_ad.headlines",
+              "ad_group_ad.ad.demand_gen_multi_asset_ad.lead_form_only",
+              "ad_group_ad.ad.demand_gen_multi_asset_ad.logo_images",
+              "ad_group_ad.ad.demand_gen_multi_asset_ad.marketing_images",
+              "ad_group_ad.ad.demand_gen_multi_asset_ad.portrait_marketing_images",
+              "ad_group_ad.ad.demand_gen_multi_asset_ad.square_marketing_images",
+              "ad_group_ad.ad.demand_gen_multi_asset_ad.tall_portrait_marketing_images"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "demand_gen_product_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.demand_gen_product_ad.breadcrumb1",
+              "ad_group_ad.ad.demand_gen_product_ad.breadcrumb2",
+              "ad_group_ad.ad.demand_gen_product_ad.business_name",
+              "ad_group_ad.ad.demand_gen_product_ad.call_to_action",
+              "ad_group_ad.ad.demand_gen_product_ad.description",
+              "ad_group_ad.ad.demand_gen_product_ad.headline",
+              "ad_group_ad.ad.demand_gen_product_ad.logo_image"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "demand_gen_video_responsive_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.demand_gen_video_responsive_ad.breadcrumb1",
+              "ad_group_ad.ad.demand_gen_video_responsive_ad.breadcrumb2",
+              "ad_group_ad.ad.demand_gen_video_responsive_ad.business_name",
+              "ad_group_ad.ad.demand_gen_video_responsive_ad.call_to_actions",
+              "ad_group_ad.ad.demand_gen_video_responsive_ad.descriptions",
+              "ad_group_ad.ad.demand_gen_video_responsive_ad.headlines",
+              "ad_group_ad.ad.demand_gen_video_responsive_ad.logo_images",
+              "ad_group_ad.ad.demand_gen_video_responsive_ad.long_headlines",
+              "ad_group_ad.ad.demand_gen_video_responsive_ad.videos"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "device_preference"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.device_preference"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "display_upload_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.display_upload_ad.display_upload_product_type",
+              "ad_group_ad.ad.display_upload_ad.media_bundle"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "display_url"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.display_url"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "expanded_dynamic_search_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.expanded_dynamic_search_ad.description",
+              "ad_group_ad.ad.expanded_dynamic_search_ad.description2"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "expanded_text_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.expanded_text_ad.description",
+              "ad_group_ad.ad.expanded_text_ad.description2",
+              "ad_group_ad.ad.expanded_text_ad.headline_part1",
+              "ad_group_ad.ad.expanded_text_ad.headline_part2",
+              "ad_group_ad.ad.expanded_text_ad.headline_part3",
+              "ad_group_ad.ad.expanded_text_ad.path1",
+              "ad_group_ad.ad.expanded_text_ad.path2"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "final_app_urls"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.final_app_urls"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "final_mobile_urls"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.final_mobile_urls"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "final_url_suffix"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.final_url_suffix"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "final_urls"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.final_urls"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "hotel_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.hotel_ad"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "id"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.id"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "image_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.image_ad.image_asset.asset",
+              "ad_group_ad.ad.image_ad.image_url",
+              "ad_group_ad.ad.image_ad.mime_type",
+              "ad_group_ad.ad.image_ad.name",
+              "ad_group_ad.ad.image_ad.pixel_height",
+              "ad_group_ad.ad.image_ad.pixel_width",
+              "ad_group_ad.ad.image_ad.preview_image_url",
+              "ad_group_ad.ad.image_ad.preview_pixel_height",
+              "ad_group_ad.ad.image_ad.preview_pixel_width"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "legacy_app_install_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.legacy_app_install_ad"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "legacy_responsive_display_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.legacy_responsive_display_ad.accent_color",
+              "ad_group_ad.ad.legacy_responsive_display_ad.allow_flexible_color",
+              "ad_group_ad.ad.legacy_responsive_display_ad.business_name",
+              "ad_group_ad.ad.legacy_responsive_display_ad.call_to_action_text",
+              "ad_group_ad.ad.legacy_responsive_display_ad.description",
+              "ad_group_ad.ad.legacy_responsive_display_ad.format_setting",
+              "ad_group_ad.ad.legacy_responsive_display_ad.logo_image",
+              "ad_group_ad.ad.legacy_responsive_display_ad.long_headline",
+              "ad_group_ad.ad.legacy_responsive_display_ad.main_color",
+              "ad_group_ad.ad.legacy_responsive_display_ad.marketing_image",
+              "ad_group_ad.ad.legacy_responsive_display_ad.price_prefix",
+              "ad_group_ad.ad.legacy_responsive_display_ad.promo_text",
+              "ad_group_ad.ad.legacy_responsive_display_ad.short_headline",
+              "ad_group_ad.ad.legacy_responsive_display_ad.square_logo_image",
+              "ad_group_ad.ad.legacy_responsive_display_ad.square_marketing_image"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "local_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.local_ad.call_to_actions",
+              "ad_group_ad.ad.local_ad.descriptions",
+              "ad_group_ad.ad.local_ad.headlines",
+              "ad_group_ad.ad.local_ad.logo_images",
+              "ad_group_ad.ad.local_ad.marketing_images",
+              "ad_group_ad.ad.local_ad.path1",
+              "ad_group_ad.ad.local_ad.path2",
+              "ad_group_ad.ad.local_ad.videos"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "name"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.name"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "resource_name"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.resource_name",
+              "ad_group_ad.resource_name"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "responsive_display_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.responsive_display_ad.accent_color",
+              "ad_group_ad.ad.responsive_display_ad.allow_flexible_color",
+              "ad_group_ad.ad.responsive_display_ad.business_name",
+              "ad_group_ad.ad.responsive_display_ad.call_to_action_text",
+              "ad_group_ad.ad.responsive_display_ad.control_spec.enable_asset_enhancements",
+              "ad_group_ad.ad.responsive_display_ad.control_spec.enable_autogen_video",
+              "ad_group_ad.ad.responsive_display_ad.descriptions",
+              "ad_group_ad.ad.responsive_display_ad.format_setting",
+              "ad_group_ad.ad.responsive_display_ad.headlines",
+              "ad_group_ad.ad.responsive_display_ad.logo_images",
+              "ad_group_ad.ad.responsive_display_ad.long_headline",
+              "ad_group_ad.ad.responsive_display_ad.main_color",
+              "ad_group_ad.ad.responsive_display_ad.marketing_images",
+              "ad_group_ad.ad.responsive_display_ad.price_prefix",
+              "ad_group_ad.ad.responsive_display_ad.promo_text",
+              "ad_group_ad.ad.responsive_display_ad.square_logo_images",
+              "ad_group_ad.ad.responsive_display_ad.square_marketing_images",
+              "ad_group_ad.ad.responsive_display_ad.youtube_videos"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "responsive_search_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.responsive_search_ad.descriptions",
+              "ad_group_ad.ad.responsive_search_ad.headlines",
+              "ad_group_ad.ad.responsive_search_ad.path1",
+              "ad_group_ad.ad.responsive_search_ad.path2"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "shopping_comparison_listing_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.shopping_comparison_listing_ad.headline"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "shopping_product_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.shopping_product_ad"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "shopping_smart_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.shopping_smart_ad"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "smart_campaign_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.smart_campaign_ad.descriptions",
+              "ad_group_ad.ad.smart_campaign_ad.headlines"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "system_managed_resource_source"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.system_managed_resource_source"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "text_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.text_ad.description1",
+              "ad_group_ad.ad.text_ad.description2",
+              "ad_group_ad.ad.text_ad.headline"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "tracking_url_template"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.tracking_url_template"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "travel_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.travel_ad"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "type"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.type"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "url_collections"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.url_collections"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "url_custom_parameters"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.url_custom_parameters"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "video_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.video_ad.audio",
+              "ad_group_ad.ad.video_ad.bumper.action_button_label",
+              "ad_group_ad.ad.video_ad.bumper.action_headline",
+              "ad_group_ad.ad.video_ad.bumper.companion_banner.asset",
+              "ad_group_ad.ad.video_ad.in_feed.description1",
+              "ad_group_ad.ad.video_ad.in_feed.description2",
+              "ad_group_ad.ad.video_ad.in_feed.headline",
+              "ad_group_ad.ad.video_ad.in_feed.thumbnail",
+              "ad_group_ad.ad.video_ad.in_stream.action_button_label",
+              "ad_group_ad.ad.video_ad.in_stream.action_headline",
+              "ad_group_ad.ad.video_ad.in_stream.companion_banner.asset",
+              "ad_group_ad.ad.video_ad.non_skippable.action_button_label",
+              "ad_group_ad.ad.video_ad.non_skippable.action_headline",
+              "ad_group_ad.ad.video_ad.non_skippable.companion_banner.asset",
+              "ad_group_ad.ad.video_ad.out_stream.description",
+              "ad_group_ad.ad.video_ad.out_stream.headline",
+              "ad_group_ad.ad.video_ad.video.asset"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "video_responsive_ad"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.video_responsive_ad.breadcrumb1",
+              "ad_group_ad.ad.video_responsive_ad.breadcrumb2",
+              "ad_group_ad.ad.video_responsive_ad.call_to_actions",
+              "ad_group_ad.ad.video_responsive_ad.companion_banners",
+              "ad_group_ad.ad.video_responsive_ad.descriptions",
+              "ad_group_ad.ad.video_responsive_ad.headlines",
+              "ad_group_ad.ad.video_responsive_ad.long_headlines",
+              "ad_group_ad.ad.video_responsive_ad.videos"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ad_group"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad_group"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ad_group_ad_asset_automation_settings"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad_group_ad_asset_automation_settings"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "ad_strength"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad_strength"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "labels"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.labels"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "policy_summary"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.policy_summary.approval_status",
+              "ad_group_ad.policy_summary.policy_topic_entries",
+              "ad_group_ad.policy_summary.review_status"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "primary_status"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.primary_status"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "primary_status_reasons"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.primary_status_reasons"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "status"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.status"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "campaign_id"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign.id"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "customer_id"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "customer.id"
+            ]
+          }
+        }
+      ],
+      "schema": {
+        "properties": {
+          "action_items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "ad_group": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "ad_group_ad_asset_automation_settings": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "ad_group_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "ad_strength": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "added_by_google_ads": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "app_ad": {
+            "properties": {
+              "app_deep_link": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "descriptions": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "headlines": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "html5_media_bundles": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "images": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "mandatory_ad_text": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "youtube_videos": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "app_engagement_ad": {
+            "properties": {
+              "descriptions": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "headlines": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "images": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "videos": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "app_pre_registration_ad": {
+            "properties": {
+              "descriptions": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "headlines": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "images": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "youtube_videos": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "call_ad": {
+            "properties": {
+              "business_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "call_tracked": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "conversion_action": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "conversion_reporting_state": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "country_code": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "description1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "description2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "disable_call_conversion": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "headline1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "headline2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "path1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "path2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "phone_number": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "phone_number_verification_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "campaign_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "customer_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "demand_gen_carousel_ad": {
+            "properties": {
+              "business_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "call_to_action_text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "carousel_cards": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "description": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "headline": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "logo_image": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "demand_gen_multi_asset_ad": {
+            "properties": {
+              "business_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "call_to_action_text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "descriptions": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "headlines": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "lead_form_only": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "logo_images": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "marketing_images": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "portrait_marketing_images": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "square_marketing_images": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "tall_portrait_marketing_images": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "demand_gen_product_ad": {
+            "properties": {
+              "breadcrumb1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "breadcrumb2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "business_name": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "call_to_action": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "description": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "headline": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "logo_image": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "demand_gen_video_responsive_ad": {
+            "properties": {
+              "breadcrumb1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "breadcrumb2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "business_name": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "call_to_actions": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "descriptions": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "headlines": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "logo_images": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "long_headlines": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "videos": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "device_preference": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "display_upload_ad": {
+            "properties": {
+              "display_upload_product_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "media_bundle": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "display_url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "expanded_dynamic_search_ad": {
+            "properties": {
+              "description": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "description2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "expanded_text_ad": {
+            "properties": {
+              "description": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "description2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "headline_part1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "headline_part2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "headline_part3": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "path1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "path2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "final_app_urls": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "final_mobile_urls": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "final_url_suffix": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "final_urls": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "hotel_ad": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "image_ad": {
+            "properties": {
+              "image_asset": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "image_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "mime_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "pixel_height": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "pixel_width": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "preview_image_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "preview_pixel_height": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "preview_pixel_width": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "labels": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "legacy_app_install_ad": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "legacy_responsive_display_ad": {
+            "properties": {
+              "accent_color": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "allow_flexible_color": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "business_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "call_to_action_text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "description": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "format_setting": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "logo_image": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "long_headline": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "main_color": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "marketing_image": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "price_prefix": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "promo_text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "short_headline": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "square_logo_image": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "square_marketing_image": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "local_ad": {
+            "properties": {
+              "call_to_actions": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "descriptions": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "headlines": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "logo_images": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "marketing_images": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "path1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "path2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "videos": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "policy_summary": {
+            "properties": {
+              "approval_status": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "policy_topic_entries": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "review_status": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "primary_status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "primary_status_reasons": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "resource_name": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "responsive_display_ad": {
+            "properties": {
+              "accent_color": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "allow_flexible_color": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "business_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "call_to_action_text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "control_spec": {
+                "properties": {
+                  "enable_asset_enhancements": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "enable_autogen_video": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "descriptions": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "format_setting": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "headlines": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "logo_images": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "long_headline": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "main_color": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "marketing_images": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "price_prefix": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "promo_text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "square_logo_images": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "square_marketing_images": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "youtube_videos": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "responsive_search_ad": {
+            "properties": {
+              "descriptions": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "headlines": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "path1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "path2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "shopping_comparison_listing_ad": {
+            "properties": {
+              "headline": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "shopping_product_ad": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "shopping_smart_ad": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "smart_campaign_ad": {
+            "properties": {
+              "descriptions": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "headlines": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "system_managed_resource_source": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "text_ad": {
+            "properties": {
+              "description1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "description2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "headline": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "tracking_url_template": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "travel_ad": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "url_collections": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "url_custom_parameters": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "video_ad": {
+            "properties": {
+              "audio": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "bumper": {
+                "properties": {
+                  "action_button_label": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "action_headline": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "companion_banner": {
+                    "properties": {
+                      "asset": {
+                        "properties": {},
+                        "type": [
+                          "null",
+                          "object",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "in_feed": {
+                "properties": {
+                  "description1": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "description2": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "headline": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "thumbnail": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "in_stream": {
+                "properties": {
+                  "action_button_label": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "action_headline": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "companion_banner": {
+                    "properties": {
+                      "asset": {
+                        "properties": {},
+                        "type": [
+                          "null",
+                          "object",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "non_skippable": {
+                "properties": {
+                  "action_button_label": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "action_headline": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "companion_banner": {
+                    "properties": {
+                      "asset": {
+                        "properties": {},
+                        "type": [
+                          "null",
+                          "object",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "out_stream": {
+                "properties": {
+                  "description": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "headline": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "video": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "video_responsive_ad": {
+            "properties": {
+              "breadcrumb1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "breadcrumb2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "call_to_actions": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "companion_banners": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "descriptions": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "headlines": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "long_headlines": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "videos": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "stream": "ads",
+      "tap_stream_id": "ads"
     },
     {
       "metadata": [
@@ -3067,6 +7186,413 @@
       },
       "stream": "campaigns",
       "tap_stream_id": "campaigns"
+    },
+    {
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "forced-replication-method": "FULL_TABLE",
+            "inclusion": "available",
+            "selected": true,
+            "table-key-properties": [
+              "id"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "aligned_bidding_strategy_id"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign_budget.aligned_bidding_strategy_id"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "amount_micros"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign_budget.amount_micros"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "delivery_method"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign_budget.delivery_method"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "explicitly_shared"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign_budget.explicitly_shared"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "has_recommended_budget"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign_budget.has_recommended_budget"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "id"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign_budget.id"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "name"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign_budget.name"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "period"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign_budget.period"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "recommended_budget_amount_micros"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign_budget.recommended_budget_amount_micros"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "recommended_budget_estimated_change_weekly_clicks"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign_budget.recommended_budget_estimated_change_weekly_clicks"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "recommended_budget_estimated_change_weekly_cost_micros"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign_budget.recommended_budget_estimated_change_weekly_cost_micros"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "recommended_budget_estimated_change_weekly_interactions"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign_budget.recommended_budget_estimated_change_weekly_interactions"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "recommended_budget_estimated_change_weekly_views"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign_budget.recommended_budget_estimated_change_weekly_views"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "reference_count"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign_budget.reference_count"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "resource_name"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign_budget.resource_name"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "status"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign_budget.status"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "total_amount_micros"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign_budget.total_amount_micros"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "type"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign_budget.type"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "customer_id"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "customer.id"
+            ]
+          }
+        }
+      ],
+      "schema": {
+        "properties": {
+          "aligned_bidding_strategy_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "amount_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "customer_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "delivery_method": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "explicitly_shared": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "has_recommended_budget": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "period": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "recommended_budget_amount_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "recommended_budget_estimated_change_weekly_clicks": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "recommended_budget_estimated_change_weekly_cost_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "recommended_budget_estimated_change_weekly_interactions": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "recommended_budget_estimated_change_weekly_views": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "reference_count": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "resource_name": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "total_amount_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "stream": "campaign_budgets",
+      "tap_stream_id": "campaign_budgets"
     }
   ]
 }

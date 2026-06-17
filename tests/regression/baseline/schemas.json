@@ -1,4 +1,160 @@
 {
+  "accessible_bidding_strategies": {
+    "properties": {
+      "customer_id": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "id": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "maximize_conversion_value": {
+        "properties": {
+          "target_roas": {
+            "format": "singer.decimal",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "maximize_conversions": {
+        "properties": {
+          "target_cpa_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "owner_customer_id": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "owner_descriptive_name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "resource_name": {
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "target_cpa": {
+        "properties": {
+          "target_cpa_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "target_impression_share": {
+        "properties": {
+          "cpc_bid_ceiling_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "location": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "location_fraction_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "target_roas": {
+        "properties": {
+          "target_roas": {
+            "format": "singer.decimal",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "target_spend": {
+        "properties": {
+          "cpc_bid_ceiling_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "target_spend_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "type": [
+      "null",
+      "object"
+    ]
+  },
   "accounts": {
     "properties": {
       "auto_tagging_enabled": {
@@ -303,6 +459,2381 @@
         "type": [
           "null",
           "object"
+        ]
+      }
+    },
+    "type": [
+      "null",
+      "object"
+    ]
+  },
+  "ad_groups": {
+    "properties": {
+      "accessible_bidding_strategy_id": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "ad_rotation_mode": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "ai_max_ad_group_setting": {
+        "properties": {
+          "disable_search_term_matching": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "audience_setting": {
+        "properties": {
+          "use_audience_grouped": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "base_ad_group": {
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "bidding_strategy_id": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "campaign": {
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "campaign_id": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "cpc_bid_micros": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "cpm_bid_micros": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "cpv_bid_micros": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "customer_id": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "demand_gen_ad_group_settings": {
+        "properties": {
+          "channel_controls": {
+            "properties": {
+              "channel_config": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "channel_strategy": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "selected_channels": {
+                "properties": {
+                  "discover": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "display": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "gmail": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "youtube_in_feed": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "youtube_in_stream": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "youtube_shorts": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "display_custom_bid_dimension": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "effective_cpc_bid_micros": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "effective_target_cpa_micros": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "effective_target_cpa_source": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "effective_target_roas": {
+        "format": "singer.decimal",
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "effective_target_roas_source": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "exclude_demographic_expansion": {
+        "type": [
+          "null",
+          "boolean"
+        ]
+      },
+      "excluded_parent_asset_field_types": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "excluded_parent_asset_set_types": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "final_url_suffix": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "fixed_cpm_micros": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "id": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "labels": {
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "optimized_targeting_enabled": {
+        "type": [
+          "null",
+          "boolean"
+        ]
+      },
+      "percent_cpc_bid_micros": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "primary_status": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "primary_status_reasons": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "resource_name": {
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "status": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "target_cpa_micros": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "target_cpm_micros": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "target_cpv_micros": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "target_roas": {
+        "format": "singer.decimal",
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "targeting_setting": {
+        "properties": {
+          "target_restrictions": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "tracking_url_template": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "url_custom_parameters": {
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "video_ad_group_settings": {
+        "properties": {
+          "video_ad_sequence": {
+            "properties": {
+              "step_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      }
+    },
+    "type": [
+      "null",
+      "object"
+    ]
+  },
+  "ads": {
+    "properties": {
+      "action_items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "ad_group": {
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "ad_group_ad_asset_automation_settings": {
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "ad_group_id": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "ad_strength": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "added_by_google_ads": {
+        "type": [
+          "null",
+          "boolean"
+        ]
+      },
+      "app_ad": {
+        "properties": {
+          "app_deep_link": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "descriptions": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "headlines": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "html5_media_bundles": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "images": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "mandatory_ad_text": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "youtube_videos": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "app_engagement_ad": {
+        "properties": {
+          "descriptions": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "headlines": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "images": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "videos": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "app_pre_registration_ad": {
+        "properties": {
+          "descriptions": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "headlines": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "images": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "youtube_videos": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "call_ad": {
+        "properties": {
+          "business_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "call_tracked": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "conversion_action": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "conversion_reporting_state": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "country_code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "disable_call_conversion": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "headline1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "headline2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "path1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "path2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "phone_number": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "phone_number_verification_url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "campaign_id": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "customer_id": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "demand_gen_carousel_ad": {
+        "properties": {
+          "business_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "call_to_action_text": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "carousel_cards": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "description": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "headline": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "logo_image": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "demand_gen_multi_asset_ad": {
+        "properties": {
+          "business_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "call_to_action_text": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "descriptions": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "headlines": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "lead_form_only": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "logo_images": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "marketing_images": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "portrait_marketing_images": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "square_marketing_images": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "tall_portrait_marketing_images": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "demand_gen_product_ad": {
+        "properties": {
+          "breadcrumb1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "breadcrumb2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "business_name": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "call_to_action": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "description": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "headline": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "logo_image": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "demand_gen_video_responsive_ad": {
+        "properties": {
+          "breadcrumb1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "breadcrumb2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "business_name": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "call_to_actions": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "descriptions": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "headlines": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "logo_images": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "long_headlines": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "videos": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "device_preference": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "display_upload_ad": {
+        "properties": {
+          "display_upload_product_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "media_bundle": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "display_url": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "expanded_dynamic_search_ad": {
+        "properties": {
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "expanded_text_ad": {
+        "properties": {
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "headline_part1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "headline_part2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "headline_part3": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "path1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "path2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "final_app_urls": {
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "final_mobile_urls": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "final_url_suffix": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "final_urls": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "hotel_ad": {
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "id": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "image_ad": {
+        "properties": {
+          "image_asset": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "image_url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "mime_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "pixel_height": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "pixel_width": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "preview_image_url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "preview_pixel_height": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "preview_pixel_width": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "labels": {
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "legacy_app_install_ad": {
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "legacy_responsive_display_ad": {
+        "properties": {
+          "accent_color": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "allow_flexible_color": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "business_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "call_to_action_text": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "format_setting": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "logo_image": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "long_headline": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "main_color": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "marketing_image": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "price_prefix": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "promo_text": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "short_headline": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "square_logo_image": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "square_marketing_image": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "local_ad": {
+        "properties": {
+          "call_to_actions": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "descriptions": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "headlines": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "logo_images": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "marketing_images": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "path1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "path2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "videos": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "policy_summary": {
+        "properties": {
+          "approval_status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "policy_topic_entries": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "review_status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "primary_status": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "primary_status_reasons": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "resource_name": {
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "responsive_display_ad": {
+        "properties": {
+          "accent_color": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "allow_flexible_color": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "business_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "call_to_action_text": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "control_spec": {
+            "properties": {
+              "enable_asset_enhancements": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "enable_autogen_video": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "descriptions": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "format_setting": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "headlines": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "logo_images": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "long_headline": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "main_color": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "marketing_images": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "price_prefix": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "promo_text": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "square_logo_images": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "square_marketing_images": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "youtube_videos": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "responsive_search_ad": {
+        "properties": {
+          "descriptions": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "headlines": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "path1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "path2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "shopping_comparison_listing_ad": {
+        "properties": {
+          "headline": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "shopping_product_ad": {
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "shopping_smart_ad": {
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "smart_campaign_ad": {
+        "properties": {
+          "descriptions": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "headlines": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "status": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "system_managed_resource_source": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "text_ad": {
+        "properties": {
+          "description1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "headline": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "tracking_url_template": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "travel_ad": {
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "type": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "url_collections": {
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "url_custom_parameters": {
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "video_ad": {
+        "properties": {
+          "audio": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "bumper": {
+            "properties": {
+              "action_button_label": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "action_headline": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "companion_banner": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "in_feed": {
+            "properties": {
+              "description1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "description2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "headline": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "thumbnail": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "in_stream": {
+            "properties": {
+              "action_button_label": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "action_headline": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "companion_banner": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "non_skippable": {
+            "properties": {
+              "action_button_label": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "action_headline": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "companion_banner": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "out_stream": {
+            "properties": {
+              "description": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "headline": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "video": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "video_responsive_ad": {
+        "properties": {
+          "breadcrumb1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "breadcrumb2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "call_to_actions": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "companion_banners": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "descriptions": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "headlines": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "long_headlines": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "videos": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      }
+    },
+    "type": [
+      "null",
+      "object"
+    ]
+  },
+  "campaign_budgets": {
+    "properties": {
+      "aligned_bidding_strategy_id": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "amount_micros": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "customer_id": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "delivery_method": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "explicitly_shared": {
+        "type": [
+          "null",
+          "boolean"
+        ]
+      },
+      "has_recommended_budget": {
+        "type": [
+          "null",
+          "boolean"
+        ]
+      },
+      "id": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "period": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "recommended_budget_amount_micros": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "recommended_budget_estimated_change_weekly_clicks": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "recommended_budget_estimated_change_weekly_cost_micros": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "recommended_budget_estimated_change_weekly_interactions": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "recommended_budget_estimated_change_weekly_views": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "reference_count": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "resource_name": {
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "status": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "total_amount_micros": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": {
+        "type": [
+          "null",
+          "string"
         ]
       }
     },
