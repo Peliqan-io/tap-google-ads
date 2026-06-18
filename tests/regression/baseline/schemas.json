@@ -155,6 +155,318 @@
       "object"
     ]
   },
+  "accounts": {
+    "properties": {
+      "auto_tagging_enabled": {
+        "type": [
+          "null",
+          "boolean"
+        ]
+      },
+      "call_reporting_setting": {
+        "properties": {
+          "call_conversion_action": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "call_conversion_reporting_enabled": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "call_reporting_enabled": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "contains_eu_political_advertising": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "conversion_tracking_setting": {
+        "properties": {
+          "accepted_customer_data_terms": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "conversion_tracking_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "conversion_tracking_status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "cross_account_conversion_tracking_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "enhanced_conversions_for_leads_enabled": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "google_ads_conversion_customer": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "currency_code": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "customer_agreement_setting": {
+        "properties": {
+          "accepted_lead_form_terms": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "descriptive_name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "final_url_suffix": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "has_partners_badge": {
+        "type": [
+          "null",
+          "boolean"
+        ]
+      },
+      "id": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "image_asset_auto_migration_done": {
+        "type": [
+          "null",
+          "boolean"
+        ]
+      },
+      "image_asset_auto_migration_done_date_time": {
+        "format": "date-time",
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "local_services_settings": {
+        "properties": {
+          "granular_insurance_statuses": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "granular_license_statuses": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "location_asset_auto_migration_done": {
+        "type": [
+          "null",
+          "boolean"
+        ]
+      },
+      "location_asset_auto_migration_done_date_time": {
+        "format": "date-time",
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "manager": {
+        "type": [
+          "null",
+          "boolean"
+        ]
+      },
+      "optimization_score": {
+        "format": "singer.decimal",
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "optimization_score_weight": {
+        "format": "singer.decimal",
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "pay_per_conversion_eligibility_failure_reasons": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "remarketing_setting": {
+        "properties": {
+          "google_global_site_tag": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "resource_name": {
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "status": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "test_account": {
+        "type": [
+          "null",
+          "boolean"
+        ]
+      },
+      "time_zone": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "tracking_url_template": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "video_brand_safety_suitability": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "video_customer": {
+        "properties": {
+          "third_party_integration_partners": {
+            "properties": {
+              "brand_lift_integration_partners": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "brand_safety_integration_partners": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "reach_integration_partners": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "viewability_integration_partners": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      }
+    },
+    "type": [
+      "null",
+      "object"
+    ]
+  },
   "ad_groups": {
     "properties": {
       "accessible_bidding_strategy_id": {
@@ -167,6 +479,20 @@
         "type": [
           "null",
           "string"
+        ]
+      },
+      "ai_max_ad_group_setting": {
+        "properties": {
+          "disable_search_term_matching": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
         ]
       },
       "audience_setting": {
@@ -491,6 +817,28 @@
           "null",
           "object",
           "string"
+        ]
+      },
+      "video_ad_group_settings": {
+        "properties": {
+          "video_ad_sequence": {
+            "properties": {
+              "step_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
         ]
       }
     },
@@ -2528,6 +2876,26 @@
           "string"
         ]
       },
+      "ai_max_setting": {
+        "properties": {
+          "bundling_required": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "enable_ai_max": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "app_campaign_setting": {
         "properties": {
           "app_id": {
@@ -2953,6 +3321,12 @@
               "null",
               "string"
             ]
+          },
+          "target_roas_tolerance_percent_millis": {
+            "type": [
+              "null",
+              "integer"
+            ]
           }
         },
         "type": [
@@ -3356,6 +3730,12 @@
               "null",
               "string"
             ]
+          },
+          "target_roas_tolerance_percent_millis": {
+            "type": [
+              "null",
+              "integer"
+            ]
           }
         },
         "type": [
@@ -3386,6 +3766,46 @@
       "targeting_setting": {
         "properties": {
           "target_restrictions": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "third_party_integration_partners": {
+        "properties": {
+          "brand_lift_integration_partners": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "brand_safety_integration_partners": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "reach_integration_partners": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "viewability_integration_partners": {
             "properties": {},
             "type": [
               "null",
@@ -3523,10 +3943,38 @@
                   "boolean"
                 ]
               },
+              "allow_non_skippable_in_stream": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
               "allow_shorts": {
                 "type": [
                   "null",
                   "boolean"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "video_ad_sequence": {
+            "properties": {
+              "minimum_duration": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "steps": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
                 ]
               }
             },
