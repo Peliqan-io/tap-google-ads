@@ -1,6 +1,5 @@
 # Changelog
 
-# Changelog
 
 ## v2.1.0
   * Updates API version to 21
