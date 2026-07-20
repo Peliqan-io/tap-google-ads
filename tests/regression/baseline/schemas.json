@@ -597,6 +597,12 @@
                       "boolean"
                     ]
                   },
+                  "maps": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
                   "youtube_in_feed": {
                     "type": [
                       "null",
@@ -652,6 +658,18 @@
         ]
       },
       "effective_target_cpa_source": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "effective_target_cpc": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "effective_target_cpc_source": {
         "type": [
           "null",
           "string"
@@ -764,6 +782,12 @@
           "integer"
         ]
       },
+      "target_cpc_micros": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
       "target_cpm_micros": {
         "type": [
           "null",
@@ -817,6 +841,32 @@
           "null",
           "object",
           "string"
+        ]
+      },
+      "vertical_ads_format_setting": {
+        "properties": {
+          "disable_text_ads": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "enable_booking_links": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "enable_vertical_promotion_ads": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
         ]
       },
       "video_ad_group_settings": {
@@ -1105,100 +1155,6 @@
           "object"
         ]
       },
-      "call_ad": {
-        "properties": {
-          "business_name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "call_tracked": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "conversion_action": {
-            "properties": {},
-            "type": [
-              "null",
-              "object",
-              "string"
-            ]
-          },
-          "conversion_reporting_state": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "country_code": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "description1": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "description2": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "disable_call_conversion": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "headline1": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "headline2": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "path1": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "path2": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "phone_number": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "phone_number_verification_url": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        "type": [
-          "null",
-          "object"
-        ]
-      },
       "campaign_id": {
         "type": [
           "null",
@@ -1295,6 +1251,23 @@
               "string"
             ]
           },
+          "classic_display_images": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
           "descriptions": {
             "properties": {},
             "type": [
@@ -1309,12 +1282,6 @@
               "null",
               "object",
               "string"
-            ]
-          },
-          "lead_form_only": {
-            "type": [
-              "null",
-              "boolean"
             ]
           },
           "logo_images": {
@@ -1525,6 +1492,23 @@
               "string"
             ]
           },
+          "companion_banners": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
           "descriptions": {
             "properties": {},
             "type": [
@@ -1627,6 +1611,13 @@
         ]
       },
       "display_url": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "end_date_time": {
+        "format": "date-time",
         "type": [
           "null",
           "string"
@@ -2360,10 +2351,65 @@
           "object"
         ]
       },
+      "start_date_time": {
+        "format": "date-time",
+        "type": [
+          "null",
+          "string"
+        ]
+      },
       "status": {
         "type": [
           "null",
           "string"
+        ]
+      },
+      "synthetic_content_info": {
+        "properties": {
+          "advertiser_attestation": {
+            "properties": {
+              "source": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "status": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "system_attestation": {
+            "properties": {
+              "source": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "status": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
         ]
       },
       "system_managed_resource_source": {
@@ -2640,6 +2686,14 @@
               "string"
             ]
           },
+          "business_name": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
           "call_to_actions": {
             "properties": {},
             "type": [
@@ -2675,6 +2729,23 @@
           },
           "headlines": {
             "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "logo_images": {
+            "properties": {
+              "asset": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
             "type": [
               "null",
               "object",
@@ -3104,7 +3175,7 @@
           "object"
         ]
       },
-      "end_date": {
+      "end_date_time": {
         "format": "date-time",
         "type": [
           "null",
@@ -3124,6 +3195,12 @@
         ]
       },
       "experiment_type": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "feed_types": {
         "type": [
           "null",
           "string"
@@ -3207,6 +3284,12 @@
       },
       "hotel_setting": {
         "properties": {
+          "disable_hotel_setting": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
           "hotel_center_id": {
             "type": [
               "null",
@@ -3496,6 +3579,46 @@
               "null",
               "object"
             ]
+          },
+          "local_services_enabled": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "local_services_pmax_campaign_settings": {
+            "properties": {
+              "country_code": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "founding_year": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "navigational_query_leads_enabled": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "phone_numbers": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
           }
         },
         "type": [
@@ -3591,6 +3714,12 @@
               "string"
             ]
           },
+          "ignore_brand_exclusion_in_shopping_ads": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
           "merchant_id": {
             "type": [
               "null",
@@ -3609,7 +3738,7 @@
           "object"
         ]
       },
-      "start_date": {
+      "start_date_time": {
         "format": "date-time",
         "type": [
           "null",
@@ -3637,6 +3766,20 @@
             ]
           },
           "target_cpa_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "target_cpc": {
+        "properties": {
+          "target_cpc_micros": {
             "type": [
               "null",
               "integer"
@@ -3779,6 +3922,28 @@
           "object"
         ]
       },
+      "text_guidelines": {
+        "properties": {
+          "messaging_restrictions": {
+            "properties": {},
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "term_exclusions": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "third_party_integration_partners": {
         "properties": {
           "brand_lift_integration_partners": {
@@ -3861,12 +4026,6 @@
           "string"
         ]
       },
-      "url_expansion_opt_out": {
-        "type": [
-          "null",
-          "boolean"
-        ]
-      },
       "vanity_pharma": {
         "properties": {
           "vanity_pharma_display_url_mode": {
@@ -3887,14 +4046,62 @@
           "object"
         ]
       },
-      "video_brand_safety_suitability": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
       "video_campaign_settings": {
         "properties": {
+          "booking_details": {
+            "properties": {
+              "cancellation_date_time": {
+                "format": "date-time",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "hold_expiration_date_time": {
+                "format": "date-time",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "status": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "reservation_ad_category_self_disclosure": {
+            "properties": {
+              "alcohol": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "gambling": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "politics": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
           "video_ad_format_control": {
             "properties": {
               "format_restriction": {
@@ -3987,6 +4194,12 @@
         "type": [
           "null",
           "object"
+        ]
+      },
+      "view_through_conversion_optimization_enabled": {
+        "type": [
+          "null",
+          "boolean"
         ]
       }
     },

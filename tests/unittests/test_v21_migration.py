@@ -1,6 +1,6 @@
 """
-Single test covering all three v20 -> v21 migration changes:
-  1. API_VERSION is "v21"
+Single test covering all three v21 -> v24 migration changes:
+  1. API_VERSION is "v24"
   2. GoogleAdsFieldService is called with version=API_VERSION
   3. google-ads package is >= 28.0.0
 """
@@ -11,12 +11,12 @@ from unittest.mock import MagicMock, patch
 from tap_google_ads.streams import API_VERSION
 
 
-class TestV21Migration(unittest.TestCase):
+class TestV24Migration(unittest.TestCase):
 
-    def test_v21_migration_changes(self):
+    def test_v24_migration_changes(self):
         # 1. API version constant
-        self.assertEqual(API_VERSION, "v21",
-            f"API_VERSION must be 'v21', got '{API_VERSION}'")
+        self.assertEqual(API_VERSION, "v24",
+            f"API_VERSION must be 'v24', got '{API_VERSION}'")
 
         # 2. GoogleAdsFieldService get_service call includes version=API_VERSION
         mock_client = MagicMock()

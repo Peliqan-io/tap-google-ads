@@ -1230,6 +1230,7 @@
               "ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.discover",
               "ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.display",
               "ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.gmail",
+              "ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.maps",
               "ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.youtube_in_feed",
               "ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.youtube_in_stream",
               "ad_group.demand_gen_ad_group_settings.channel_controls.selected_channels.youtube_shorts"
@@ -1289,6 +1290,34 @@
             "inclusion": "automatic",
             "tap-google-ads.api-field-names": [
               "ad_group.effective_target_cpa_source"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "effective_target_cpc"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.effective_target_cpc"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "effective_target_cpc_source"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.effective_target_cpc_source"
             ]
           }
         },
@@ -1533,6 +1562,20 @@
         {
           "breadcrumb": [
             "properties",
+            "target_cpc_micros"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.target_cpc_micros"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
             "target_cpm_micros"
           ],
           "metadata": {
@@ -1625,6 +1668,22 @@
             "inclusion": "automatic",
             "tap-google-ads.api-field-names": [
               "ad_group.url_custom_parameters"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "vertical_ads_format_setting"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group.vertical_ads_format_setting.disable_text_ads",
+              "ad_group.vertical_ads_format_setting.enable_booking_links",
+              "ad_group.vertical_ads_format_setting.enable_vertical_promotion_ads"
             ]
           }
         },
@@ -1815,6 +1874,12 @@
                           "boolean"
                         ]
                       },
+                      "maps": {
+                        "type": [
+                          "null",
+                          "boolean"
+                        ]
+                      },
                       "youtube_in_feed": {
                         "type": [
                           "null",
@@ -1870,6 +1935,18 @@
             ]
           },
           "effective_target_cpa_source": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "effective_target_cpc": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "effective_target_cpc_source": {
             "type": [
               "null",
               "string"
@@ -1982,6 +2059,12 @@
               "integer"
             ]
           },
+          "target_cpc_micros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
           "target_cpm_micros": {
             "type": [
               "null",
@@ -2035,6 +2118,32 @@
               "null",
               "object",
               "string"
+            ]
+          },
+          "vertical_ads_format_setting": {
+            "properties": {
+              "disable_text_ads": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "enable_booking_links": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "enable_vertical_promotion_ads": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
             ]
           },
           "video_ad_group_settings": {
@@ -2180,33 +2289,6 @@
         {
           "breadcrumb": [
             "properties",
-            "call_ad"
-          ],
-          "metadata": {
-            "behavior": "ATTRIBUTE",
-            "fieldExclusions": [],
-            "inclusion": "automatic",
-            "tap-google-ads.api-field-names": [
-              "ad_group_ad.ad.call_ad.business_name",
-              "ad_group_ad.ad.call_ad.call_tracked",
-              "ad_group_ad.ad.call_ad.conversion_action",
-              "ad_group_ad.ad.call_ad.conversion_reporting_state",
-              "ad_group_ad.ad.call_ad.country_code",
-              "ad_group_ad.ad.call_ad.description1",
-              "ad_group_ad.ad.call_ad.description2",
-              "ad_group_ad.ad.call_ad.disable_call_conversion",
-              "ad_group_ad.ad.call_ad.headline1",
-              "ad_group_ad.ad.call_ad.headline2",
-              "ad_group_ad.ad.call_ad.path1",
-              "ad_group_ad.ad.call_ad.path2",
-              "ad_group_ad.ad.call_ad.phone_number",
-              "ad_group_ad.ad.call_ad.phone_number_verification_url"
-            ]
-          }
-        },
-        {
-          "breadcrumb": [
-            "properties",
             "demand_gen_carousel_ad"
           ],
           "metadata": {
@@ -2235,9 +2317,9 @@
             "tap-google-ads.api-field-names": [
               "ad_group_ad.ad.demand_gen_multi_asset_ad.business_name",
               "ad_group_ad.ad.demand_gen_multi_asset_ad.call_to_action_text",
+              "ad_group_ad.ad.demand_gen_multi_asset_ad.classic_display_images",
               "ad_group_ad.ad.demand_gen_multi_asset_ad.descriptions",
               "ad_group_ad.ad.demand_gen_multi_asset_ad.headlines",
-              "ad_group_ad.ad.demand_gen_multi_asset_ad.lead_form_only",
               "ad_group_ad.ad.demand_gen_multi_asset_ad.logo_images",
               "ad_group_ad.ad.demand_gen_multi_asset_ad.marketing_images",
               "ad_group_ad.ad.demand_gen_multi_asset_ad.portrait_marketing_images",
@@ -2280,6 +2362,7 @@
               "ad_group_ad.ad.demand_gen_video_responsive_ad.breadcrumb2",
               "ad_group_ad.ad.demand_gen_video_responsive_ad.business_name",
               "ad_group_ad.ad.demand_gen_video_responsive_ad.call_to_actions",
+              "ad_group_ad.ad.demand_gen_video_responsive_ad.companion_banners",
               "ad_group_ad.ad.demand_gen_video_responsive_ad.descriptions",
               "ad_group_ad.ad.demand_gen_video_responsive_ad.headlines",
               "ad_group_ad.ad.demand_gen_video_responsive_ad.logo_images",
@@ -2672,6 +2755,23 @@
         {
           "breadcrumb": [
             "properties",
+            "synthetic_content_info"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.ad.synthetic_content_info.advertiser_attestation.source",
+              "ad_group_ad.ad.synthetic_content_info.advertiser_attestation.status",
+              "ad_group_ad.ad.synthetic_content_info.system_attestation.source",
+              "ad_group_ad.ad.synthetic_content_info.system_attestation.status"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
             "system_managed_resource_source"
           ],
           "metadata": {
@@ -2811,10 +2911,12 @@
             "tap-google-ads.api-field-names": [
               "ad_group_ad.ad.video_responsive_ad.breadcrumb1",
               "ad_group_ad.ad.video_responsive_ad.breadcrumb2",
+              "ad_group_ad.ad.video_responsive_ad.business_name",
               "ad_group_ad.ad.video_responsive_ad.call_to_actions",
               "ad_group_ad.ad.video_responsive_ad.companion_banners",
               "ad_group_ad.ad.video_responsive_ad.descriptions",
               "ad_group_ad.ad.video_responsive_ad.headlines",
+              "ad_group_ad.ad.video_responsive_ad.logo_images",
               "ad_group_ad.ad.video_responsive_ad.long_headlines",
               "ad_group_ad.ad.video_responsive_ad.videos"
             ]
@@ -2859,6 +2961,20 @@
             "inclusion": "automatic",
             "tap-google-ads.api-field-names": [
               "ad_group_ad.ad_strength"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "end_date_time"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.end_date_time"
             ]
           }
         },
@@ -2917,6 +3033,20 @@
             "inclusion": "automatic",
             "tap-google-ads.api-field-names": [
               "ad_group_ad.primary_status_reasons"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "start_date_time"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "ad_group_ad.start_date_time"
             ]
           }
         },
@@ -3221,100 +3351,6 @@
               "object"
             ]
           },
-          "call_ad": {
-            "properties": {
-              "business_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "call_tracked": {
-                "type": [
-                  "null",
-                  "boolean"
-                ]
-              },
-              "conversion_action": {
-                "properties": {},
-                "type": [
-                  "null",
-                  "object",
-                  "string"
-                ]
-              },
-              "conversion_reporting_state": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "country_code": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "description1": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "description2": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "disable_call_conversion": {
-                "type": [
-                  "null",
-                  "boolean"
-                ]
-              },
-              "headline1": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "headline2": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "path1": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "path2": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "phone_number": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "phone_number_verification_url": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            },
-            "type": [
-              "null",
-              "object"
-            ]
-          },
           "campaign_id": {
             "type": [
               "null",
@@ -3411,6 +3447,23 @@
                   "string"
                 ]
               },
+              "classic_display_images": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
               "descriptions": {
                 "properties": {},
                 "type": [
@@ -3425,12 +3478,6 @@
                   "null",
                   "object",
                   "string"
-                ]
-              },
-              "lead_form_only": {
-                "type": [
-                  "null",
-                  "boolean"
                 ]
               },
               "logo_images": {
@@ -3641,6 +3688,23 @@
                   "string"
                 ]
               },
+              "companion_banners": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
               "descriptions": {
                 "properties": {},
                 "type": [
@@ -3743,6 +3807,13 @@
             ]
           },
           "display_url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "end_date_time": {
+            "format": "date-time",
             "type": [
               "null",
               "string"
@@ -4476,10 +4547,65 @@
               "object"
             ]
           },
+          "start_date_time": {
+            "format": "date-time",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "status": {
             "type": [
               "null",
               "string"
+            ]
+          },
+          "synthetic_content_info": {
+            "properties": {
+              "advertiser_attestation": {
+                "properties": {
+                  "source": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "status": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "system_attestation": {
+                "properties": {
+                  "source": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "status": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
             ]
           },
           "system_managed_resource_source": {
@@ -4756,6 +4882,14 @@
                   "string"
                 ]
               },
+              "business_name": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
               "call_to_actions": {
                 "properties": {},
                 "type": [
@@ -4791,6 +4925,23 @@
               },
               "headlines": {
                 "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "logo_images": {
+                "properties": {
+                  "asset": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
                 "type": [
                   "null",
                   "object",
@@ -5168,14 +5319,14 @@
         {
           "breadcrumb": [
             "properties",
-            "end_date"
+            "end_date_time"
           ],
           "metadata": {
             "behavior": "ATTRIBUTE",
             "fieldExclusions": [],
             "inclusion": "automatic",
             "tap-google-ads.api-field-names": [
-              "campaign.end_date"
+              "campaign.end_date_time"
             ]
           }
         },
@@ -5218,6 +5369,20 @@
             "inclusion": "automatic",
             "tap-google-ads.api-field-names": [
               "campaign.experiment_type"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "feed_types"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign.feed_types"
             ]
           }
         },
@@ -5304,6 +5469,7 @@
             "fieldExclusions": [],
             "inclusion": "automatic",
             "tap-google-ads.api-field-names": [
+              "campaign.hotel_setting.disable_hotel_setting",
               "campaign.hotel_setting.hotel_center_id"
             ]
           }
@@ -5607,7 +5773,12 @@
             "fieldExclusions": [],
             "inclusion": "automatic",
             "tap-google-ads.api-field-names": [
-              "campaign.pmax_campaign_settings.brand_targeting_overrides.ignore_exclusions_for_shopping_ads"
+              "campaign.pmax_campaign_settings.brand_targeting_overrides.ignore_exclusions_for_shopping_ads",
+              "campaign.pmax_campaign_settings.local_services_enabled",
+              "campaign.pmax_campaign_settings.local_services_pmax_campaign_settings.country_code",
+              "campaign.pmax_campaign_settings.local_services_pmax_campaign_settings.founding_year",
+              "campaign.pmax_campaign_settings.local_services_pmax_campaign_settings.navigational_query_leads_enabled",
+              "campaign.pmax_campaign_settings.local_services_pmax_campaign_settings.phone_numbers"
             ]
           }
         },
@@ -5710,6 +5881,7 @@
               "campaign.shopping_setting.disable_product_feed",
               "campaign.shopping_setting.enable_local",
               "campaign.shopping_setting.feed_label",
+              "campaign.shopping_setting.ignore_brand_exclusion_in_shopping_ads",
               "campaign.shopping_setting.merchant_id",
               "campaign.shopping_setting.use_vehicle_inventory"
             ]
@@ -5718,14 +5890,14 @@
         {
           "breadcrumb": [
             "properties",
-            "start_date"
+            "start_date_time"
           ],
           "metadata": {
             "behavior": "ATTRIBUTE",
             "fieldExclusions": [],
             "inclusion": "automatic",
             "tap-google-ads.api-field-names": [
-              "campaign.start_date"
+              "campaign.start_date_time"
             ]
           }
         },
@@ -5756,6 +5928,20 @@
               "campaign.target_cpa.cpc_bid_ceiling_micros",
               "campaign.target_cpa.cpc_bid_floor_micros",
               "campaign.target_cpa.target_cpa_micros"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "target_cpc"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign.target_cpc.target_cpc_micros"
             ]
           }
         },
@@ -5853,6 +6039,21 @@
         {
           "breadcrumb": [
             "properties",
+            "text_guidelines"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign.text_guidelines.messaging_restrictions",
+              "campaign.text_guidelines.term_exclusions"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
             "third_party_integration_partners"
           ],
           "metadata": {
@@ -5926,20 +6127,6 @@
         {
           "breadcrumb": [
             "properties",
-            "url_expansion_opt_out"
-          ],
-          "metadata": {
-            "behavior": "ATTRIBUTE",
-            "fieldExclusions": [],
-            "inclusion": "automatic",
-            "tap-google-ads.api-field-names": [
-              "campaign.url_expansion_opt_out"
-            ]
-          }
-        },
-        {
-          "breadcrumb": [
-            "properties",
             "vanity_pharma"
           ],
           "metadata": {
@@ -5955,20 +6142,6 @@
         {
           "breadcrumb": [
             "properties",
-            "video_brand_safety_suitability"
-          ],
-          "metadata": {
-            "behavior": "ATTRIBUTE",
-            "fieldExclusions": [],
-            "inclusion": "automatic",
-            "tap-google-ads.api-field-names": [
-              "campaign.video_brand_safety_suitability"
-            ]
-          }
-        },
-        {
-          "breadcrumb": [
-            "properties",
             "video_campaign_settings"
           ],
           "metadata": {
@@ -5976,6 +6149,12 @@
             "fieldExclusions": [],
             "inclusion": "automatic",
             "tap-google-ads.api-field-names": [
+              "campaign.video_campaign_settings.booking_details.cancellation_date_time",
+              "campaign.video_campaign_settings.booking_details.hold_expiration_date_time",
+              "campaign.video_campaign_settings.booking_details.status",
+              "campaign.video_campaign_settings.reservation_ad_category_self_disclosure.alcohol",
+              "campaign.video_campaign_settings.reservation_ad_category_self_disclosure.gambling",
+              "campaign.video_campaign_settings.reservation_ad_category_self_disclosure.politics",
               "campaign.video_campaign_settings.video_ad_format_control.format_restriction",
               "campaign.video_campaign_settings.video_ad_format_control.non_skippable_in_stream_restrictions.max_duration",
               "campaign.video_campaign_settings.video_ad_format_control.non_skippable_in_stream_restrictions.min_duration",
@@ -5985,6 +6164,20 @@
               "campaign.video_campaign_settings.video_ad_inventory_control.allow_shorts",
               "campaign.video_campaign_settings.video_ad_sequence.minimum_duration",
               "campaign.video_campaign_settings.video_ad_sequence.steps"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "view_through_conversion_optimization_enabled"
+          ],
+          "metadata": {
+            "behavior": "ATTRIBUTE",
+            "fieldExclusions": [],
+            "inclusion": "automatic",
+            "tap-google-ads.api-field-names": [
+              "campaign.view_through_conversion_optimization_enabled"
             ]
           }
         },
@@ -6293,7 +6486,7 @@
               "object"
             ]
           },
-          "end_date": {
+          "end_date_time": {
             "format": "date-time",
             "type": [
               "null",
@@ -6313,6 +6506,12 @@
             ]
           },
           "experiment_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "feed_types": {
             "type": [
               "null",
               "string"
@@ -6396,6 +6595,12 @@
           },
           "hotel_setting": {
             "properties": {
+              "disable_hotel_setting": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
               "hotel_center_id": {
                 "type": [
                   "null",
@@ -6685,6 +6890,46 @@
                   "null",
                   "object"
                 ]
+              },
+              "local_services_enabled": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "local_services_pmax_campaign_settings": {
+                "properties": {
+                  "country_code": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "founding_year": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "navigational_query_leads_enabled": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "phone_numbers": {
+                    "properties": {},
+                    "type": [
+                      "null",
+                      "object",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
               }
             },
             "type": [
@@ -6780,6 +7025,12 @@
                   "string"
                 ]
               },
+              "ignore_brand_exclusion_in_shopping_ads": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
               "merchant_id": {
                 "type": [
                   "null",
@@ -6798,7 +7049,7 @@
               "object"
             ]
           },
-          "start_date": {
+          "start_date_time": {
             "format": "date-time",
             "type": [
               "null",
@@ -6826,6 +7077,20 @@
                 ]
               },
               "target_cpa_micros": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "target_cpc": {
+            "properties": {
+              "target_cpc_micros": {
                 "type": [
                   "null",
                   "integer"
@@ -6968,6 +7233,28 @@
               "object"
             ]
           },
+          "text_guidelines": {
+            "properties": {
+              "messaging_restrictions": {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object",
+                  "string"
+                ]
+              },
+              "term_exclusions": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
           "third_party_integration_partners": {
             "properties": {
               "brand_lift_integration_partners": {
@@ -7050,12 +7337,6 @@
               "string"
             ]
           },
-          "url_expansion_opt_out": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
           "vanity_pharma": {
             "properties": {
               "vanity_pharma_display_url_mode": {
@@ -7076,14 +7357,62 @@
               "object"
             ]
           },
-          "video_brand_safety_suitability": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
           "video_campaign_settings": {
             "properties": {
+              "booking_details": {
+                "properties": {
+                  "cancellation_date_time": {
+                    "format": "date-time",
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "hold_expiration_date_time": {
+                    "format": "date-time",
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "status": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "reservation_ad_category_self_disclosure": {
+                "properties": {
+                  "alcohol": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "gambling": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "politics": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
               "video_ad_format_control": {
                 "properties": {
                   "format_restriction": {
@@ -7176,6 +7505,12 @@
             "type": [
               "null",
               "object"
+            ]
+          },
+          "view_through_conversion_optimization_enabled": {
+            "type": [
+              "null",
+              "boolean"
             ]
           }
         },

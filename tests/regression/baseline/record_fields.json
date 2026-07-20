@@ -64,7 +64,8 @@
     "target_cpm_micros",
     "target_cpv_micros",
     "targeting_setting",
-    "type"
+    "type",
+    "vertical_ads_format_setting"
   ],
   "ads": [
     "action_items",
@@ -99,9 +100,6 @@
     "id",
     "name",
     "period",
-    "recommended_budget_amount_micros",
-    "recommended_budget_estimated_change_weekly_cost_micros",
-    "recommended_budget_estimated_change_weekly_interactions",
     "reference_count",
     "resource_name",
     "status",
@@ -129,7 +127,7 @@
     "customer_id",
     "demand_gen_campaign_settings",
     "dynamic_search_ads_setting",
-    "end_date",
+    "end_date_time",
     "excluded_parent_asset_set_types",
     "experiment_type",
     "final_url_suffix",
@@ -142,18 +140,20 @@
     "name",
     "network_settings",
     "optimization_goal_setting",
+    "optimization_score",
     "payment_mode",
     "primary_status",
     "primary_status_reasons",
     "resource_name",
     "serving_status",
-    "start_date",
+    "start_date_time",
     "status",
     "target_cpa",
     "target_cpv",
     "targeting_setting",
+    "text_guidelines",
     "tracking_url_template",
-    "url_expansion_opt_out",
-    "video_campaign_settings"
+    "video_campaign_settings",
+    "view_through_conversion_optimization_enabled"
   ]
 }
