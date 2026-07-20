@@ -1,6 +1,11 @@
 # Changelog
 
 
+## v2.2.0
+  * Updates API version to 24
+  * Updates google-ads SDK version constraint to `>=28.0.0,<32.0.0`
+  * [#13](https://github.com/Peliqan-io/tap-google-ads/pull/13)
+
 ## v2.1.0
   * Updates API version to 21
   * Updates pkg version to 28.0.0

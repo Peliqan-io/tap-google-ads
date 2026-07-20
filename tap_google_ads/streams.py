@@ -76,7 +76,6 @@ def create_nested_resource_schema(resource_schema, fields):
             walker = walker[path]["properties"]
         if last_path not in walker:
             if field not in resource_schema:
-                LOGGER.warning("Field '%s' not found in API v%s schema, skipping", field, API_VERSION)
                 continue
             json_schema = resource_schema[field]["json_schema"]
             walker[last_path] = json_schema
@@ -645,7 +644,6 @@ class ReportStream(BaseStream):
         }
         for report_field in self.fields:
             if report_field not in self.behavior:
-                LOGGER.warning("Field '%s' not found in API v%s schema, skipping", report_field, API_VERSION)
                 continue
             # Transform the field name to match the schema
             is_metric_or_segment = report_field.startswith("metrics.") or report_field.startswith("segments.")
