@@ -623,9 +623,13 @@ class ReportStream(BaseStream):
                     for ad_field_name, ad_field_schema in data_type["properties"].items():
                         self.stream_schema["properties"][ad_field_name] = ad_field_schema
                 elif resource_name not in {"metrics", "segments"}:
-                    self.stream_schema["properties"][f"{resource_name}_{field_name}"] = data_type
+                    gaql_field = f"{resource_name}.{field_name}"
+                    catalog_name = report_definitions.FIELD_ALIASES.get(gaql_field, f"{resource_name}_{field_name}")
+                    self.stream_schema["properties"][catalog_name] = data_type
                 else:
-                    self.stream_schema["properties"][field_name] = data_type
+                    gaql_field = f"{resource_name}.{field_name}"
+                    catalog_name = report_definitions.FIELD_ALIASES.get(gaql_field, field_name)
+                    self.stream_schema["properties"][catalog_name] = data_type
 
     def build_stream_metadata(self):
         self.stream_metadata = {
@@ -643,8 +647,11 @@ class ReportStream(BaseStream):
         for report_field in self.fields:
             # Transform the field name to match the schema
             is_metric_or_segment = report_field.startswith("metrics.") or report_field.startswith("segments.")
+            # Use alias if defined (keeps backward-compatible catalog names for renamed v24 fields)
+            if report_field in report_definitions.FIELD_ALIASES:
+                transformed_field_name = report_definitions.FIELD_ALIASES[report_field]
             # Transform ad_group_ad.ad.x fields to just x to reflect ad_group_ads schema
-            if report_field.startswith("ad_group_ad.ad."):
+            elif report_field.startswith("ad_group_ad.ad."):
                 transformed_field_name = report_field.split(".")[2]
             elif not is_metric_or_segment:
                 transformed_field_name = "_".join(report_field.split(".")[:2])
@@ -654,13 +661,23 @@ class ReportStream(BaseStream):
             # metadata_key = ("properties", transformed_field_name)
             # Base metadata for every field
             if ("properties", transformed_field_name) not in self.stream_metadata:
+                # Fall back to derived behavior when the field service doesn't return
+                # the field for this resource (e.g. segments.slot on a customer report)
+                if report_field in self.behavior:
+                    field_behavior = self.behavior[report_field]
+                elif report_field.startswith("segments."):
+                    field_behavior = "SEGMENT"
+                elif report_field.startswith("metrics."):
+                    field_behavior = "METRIC"
+                else:
+                    field_behavior = "ATTRIBUTE"
                 self.stream_metadata[("properties", transformed_field_name)] = {
                     "fieldExclusions": [],
-                    "behavior": self.behavior[report_field],
+                    "behavior": field_behavior,
                 }
 
                 # Transform field exclusion names so they match the schema
-                for field_name in self.field_exclusions[report_field]:
+                for field_name in self.field_exclusions.get(report_field, []):
                     is_metric_or_segment = field_name.startswith("metrics.") or field_name.startswith("segments.")
                     if not is_metric_or_segment:
                         new_field_name = field_name.replace(".", "_")
@@ -670,7 +687,7 @@ class ReportStream(BaseStream):
                     self.stream_metadata[("properties", transformed_field_name)]["fieldExclusions"].append(new_field_name)
 
             # Add inclusion metadata
-            if self.behavior[report_field]:
+            if self.behavior.get(report_field):
                 inclusion = "available"
                 if transformed_field_name in (self.automatic_keys):
                     inclusion = "automatic"
@@ -704,6 +721,13 @@ class ReportStream(BaseStream):
                     {f"{resource_name}_{key}": sub_value
                      for key, sub_value in value.items()}
                 )
+
+        # Rename record keys to match aliased catalog property names
+        for gaql_field, alias in report_definitions.FIELD_ALIASES.items():
+            parts = gaql_field.split(".")
+            record_key = parts[1] if parts[0] in {"metrics", "segments"} else "_".join(parts[:2])
+            if record_key in transformed_message:
+                transformed_message[alias] = transformed_message.pop(record_key)
 
         return transformed_message
     
@@ -1155,5 +1179,26 @@ def initialize_reports(resource_schema):
             resource_schema,
             ["_sdc_record_hash"],
             {"video_id"},
+        ),
+        "campaign_conversion_report": ReportStream(
+            report_definitions.CAMPAIGN_CONVERSION_REPORT_FIELDS,
+            ["campaign"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"campaign_id", "date"},
+        ),
+        "ad_group_conversion_report": ReportStream(
+            report_definitions.AD_GROUP_CONVERSION_REPORT_FIELDS,
+            ["ad_group"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"ad_group_id", "date"},
+        ),
+        "keywords_conversion_report": ReportStream(
+            report_definitions.KEYWORDS_CONVERSION_REPORT_FIELDS,
+            ["keyword_view"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"ad_group_criterion_criterion_id", "ad_group_id", "date"},
         ),
     }
