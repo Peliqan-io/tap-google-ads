@@ -8,10 +8,11 @@ Covers every category of change:
   4. Fields removed because Google deleted them from the API
   5. Universal Analytics metrics removed (no data since July 2023)
   6. Campaign date fields renamed to *_time variants
-  7. Three new conversion report streams added
-  8. Removed fields are absent from conversion stream field lists
+  7. Three original + 17 new dedicated conversion report streams added
+  8. Conversion segments absent from ALL performance reports
 """
 import importlib.metadata
+import inspect
 import unittest
 from unittest.mock import MagicMock, patch
 
@@ -20,28 +21,93 @@ from tap_google_ads.report_definitions import (
     FIELD_ALIASES,
     ACCOUNT_PERFORMANCE_REPORT_FIELDS,
     AD_GROUP_PERFORMANCE_REPORT_FIELDS,
+    AD_GROUP_AUDIENCE_PERFORMANCE_REPORT_FIELDS,
+    AGE_RANGE_PERFORMANCE_REPORT_FIELDS,
+    CAMPAIGN_AUDIENCE_PERFORMANCE_REPORT_FIELDS,
     CAMPAIGN_PERFORMANCE_REPORT_FIELDS,
+    DISPLAY_KEYWORD_PERFORMANCE_REPORT_FIELDS,
+    DISPLAY_TOPICS_PERFORMANCE_REPORT_FIELDS,
+    EXPANDED_LANDING_PAGE_REPORT_FIELDS,
+    GENDER_PERFORMANCE_REPORT_FIELDS,
+    GEO_PERFORMANCE_REPORT_FIELDS,
+    KEYWORDLESS_QUERY_REPORT_FIELDS,
     KEYWORDS_PERFORMANCE_REPORT_FIELDS,
+    LANDING_PAGE_REPORT_FIELDS,
+    PLACEMENT_PERFORMANCE_REPORT_FIELDS,
+    SEARCH_QUERY_PERFORMANCE_REPORT_FIELDS,
+    SHOPPING_PERFORMANCE_REPORT_FIELDS,
+    USER_LOCATION_PERFORMANCE_REPORT_FIELDS,
+    VIDEO_PERFORMANCE_REPORT_FIELDS,
     AD_PERFORMANCE_REPORT_FIELDS,
     CLICK_PERFORMANCE_REPORT_FIELDS,
+    # Original conversion streams (campaign / ad_group / keywords)
     CAMPAIGN_CONVERSION_REPORT_FIELDS,
     AD_GROUP_CONVERSION_REPORT_FIELDS,
     KEYWORDS_CONVERSION_REPORT_FIELDS,
+    # 17 new dedicated conversion streams
+    ACCOUNT_CONVERSION_REPORT_FIELDS,
+    AD_CONVERSION_REPORT_FIELDS,
+    AGE_RANGE_CONVERSION_REPORT_FIELDS,
+    AD_GROUP_AUDIENCE_CONVERSION_REPORT_FIELDS,
+    CAMPAIGN_AUDIENCE_CONVERSION_REPORT_FIELDS,
+    DISPLAY_KEYWORD_CONVERSION_REPORT_FIELDS,
+    DISPLAY_TOPICS_CONVERSION_REPORT_FIELDS,
+    EXPANDED_LANDING_PAGE_CONVERSION_REPORT_FIELDS,
+    GENDER_CONVERSION_REPORT_FIELDS,
+    GEO_CONVERSION_REPORT_FIELDS,
+    KEYWORDLESS_QUERY_CONVERSION_REPORT_FIELDS,
+    LANDING_PAGE_CONVERSION_REPORT_FIELDS,
+    PLACEMENT_CONVERSION_REPORT_FIELDS,
+    SEARCH_QUERY_CONVERSION_REPORT_FIELDS,
+    SHOPPING_CONVERSION_REPORT_FIELDS,
+    USER_LOCATION_CONVERSION_REPORT_FIELDS,
+    VIDEO_CONVERSION_REPORT_FIELDS,
 )
 
-# All report streams that segment by device (slot/hour/month_of_year removed from all)
+# All performance report streams — conversion segments must be absent from all of these
 ALL_REPORT_FIELD_LISTS = [
-    ("account_performance_report",    ACCOUNT_PERFORMANCE_REPORT_FIELDS),
-    ("ad_group_performance_report",   AD_GROUP_PERFORMANCE_REPORT_FIELDS),
-    ("campaign_performance_report",   CAMPAIGN_PERFORMANCE_REPORT_FIELDS),
-    ("keywords_performance_report",   KEYWORDS_PERFORMANCE_REPORT_FIELDS),
-    ("ad_performance_report",         AD_PERFORMANCE_REPORT_FIELDS),
+    ("account_performance_report",          ACCOUNT_PERFORMANCE_REPORT_FIELDS),
+    ("ad_group_performance_report",         AD_GROUP_PERFORMANCE_REPORT_FIELDS),
+    ("campaign_performance_report",         CAMPAIGN_PERFORMANCE_REPORT_FIELDS),
+    ("keywords_performance_report",         KEYWORDS_PERFORMANCE_REPORT_FIELDS),
+    ("ad_performance_report",               AD_PERFORMANCE_REPORT_FIELDS),
+    ("age_range_performance_report",        AGE_RANGE_PERFORMANCE_REPORT_FIELDS),
+    ("ad_group_audience_performance_report",AD_GROUP_AUDIENCE_PERFORMANCE_REPORT_FIELDS),
+    ("campaign_audience_performance_report",CAMPAIGN_AUDIENCE_PERFORMANCE_REPORT_FIELDS),
+    ("display_keyword_performance_report",  DISPLAY_KEYWORD_PERFORMANCE_REPORT_FIELDS),
+    ("display_topics_performance_report",   DISPLAY_TOPICS_PERFORMANCE_REPORT_FIELDS),
+    ("gender_performance_report",           GENDER_PERFORMANCE_REPORT_FIELDS),
+    ("geo_performance_report",              GEO_PERFORMANCE_REPORT_FIELDS),
+    ("keywordless_query_report",            KEYWORDLESS_QUERY_REPORT_FIELDS),
+    ("placement_performance_report",        PLACEMENT_PERFORMANCE_REPORT_FIELDS),
+    ("search_query_performance_report",     SEARCH_QUERY_PERFORMANCE_REPORT_FIELDS),
+    ("shopping_performance_report",         SHOPPING_PERFORMANCE_REPORT_FIELDS),
+    ("user_location_performance_report",    USER_LOCATION_PERFORMANCE_REPORT_FIELDS),
+    ("video_performance_report",            VIDEO_PERFORMANCE_REPORT_FIELDS),
 ]
 
-CONVERSION_REPORT_FIELD_LISTS = [
-    ("campaign_conversion_report",    CAMPAIGN_CONVERSION_REPORT_FIELDS),
-    ("ad_group_conversion_report",    AD_GROUP_CONVERSION_REPORT_FIELDS),
-    ("keywords_conversion_report",    KEYWORDS_CONVERSION_REPORT_FIELDS),
+# All 20 dedicated conversion streams
+ALL_CONVERSION_REPORT_FIELD_LISTS = [
+    ("campaign_conversion_report",                  CAMPAIGN_CONVERSION_REPORT_FIELDS),
+    ("ad_group_conversion_report",                  AD_GROUP_CONVERSION_REPORT_FIELDS),
+    ("keywords_conversion_report",                  KEYWORDS_CONVERSION_REPORT_FIELDS),
+    ("account_conversion_report",                   ACCOUNT_CONVERSION_REPORT_FIELDS),
+    ("ad_conversion_report",                        AD_CONVERSION_REPORT_FIELDS),
+    ("age_range_conversion_report",                 AGE_RANGE_CONVERSION_REPORT_FIELDS),
+    ("ad_group_audience_conversion_report",         AD_GROUP_AUDIENCE_CONVERSION_REPORT_FIELDS),
+    ("campaign_audience_conversion_report",         CAMPAIGN_AUDIENCE_CONVERSION_REPORT_FIELDS),
+    ("display_keyword_conversion_report",           DISPLAY_KEYWORD_CONVERSION_REPORT_FIELDS),
+    ("display_topics_conversion_report",            DISPLAY_TOPICS_CONVERSION_REPORT_FIELDS),
+    ("expanded_landing_page_conversion_report",     EXPANDED_LANDING_PAGE_CONVERSION_REPORT_FIELDS),
+    ("gender_conversion_report",                    GENDER_CONVERSION_REPORT_FIELDS),
+    ("geo_conversion_report",                       GEO_CONVERSION_REPORT_FIELDS),
+    ("keywordless_query_conversion_report",         KEYWORDLESS_QUERY_CONVERSION_REPORT_FIELDS),
+    ("landing_page_conversion_report",              LANDING_PAGE_CONVERSION_REPORT_FIELDS),
+    ("placement_conversion_report",                 PLACEMENT_CONVERSION_REPORT_FIELDS),
+    ("search_query_conversion_report",              SEARCH_QUERY_CONVERSION_REPORT_FIELDS),
+    ("shopping_conversion_report",                  SHOPPING_CONVERSION_REPORT_FIELDS),
+    ("user_location_conversion_report",             USER_LOCATION_CONVERSION_REPORT_FIELDS),
+    ("video_conversion_report",                     VIDEO_CONVERSION_REPORT_FIELDS),
 ]
 
 
@@ -159,18 +225,24 @@ class TestRemovedFieldsExclusionRules(unittest.TestCase):
             with self.subTest(field=f):
                 self.assertNotIn(f, KEYWORDS_PERFORMANCE_REPORT_FIELDS)
 
-    def test_conversion_action_group_absent_from_performance_streams(self):
-        """These fields moved to dedicated conversion streams."""
-        moved_fields = [
+    def test_conversion_action_group_absent_from_all_performance_reports(self):
+        """segments.conversion_action and siblings are incompatible with performance
+        metrics (clicks, impressions, cost) in GAQL v24 — they must be absent from
+        ALL performance reports and provided only through dedicated conversion streams."""
+        conversion_segments = [
             "segments.conversion_action",
             "segments.conversion_action_category",
             "segments.conversion_action_name",
             "segments.external_conversion_source",
         ]
         for stream_name, fields in ALL_REPORT_FIELD_LISTS:
-            for bad_field in moved_fields:
+            for bad_field in conversion_segments:
                 with self.subTest(stream=stream_name, field=bad_field):
-                    self.assertNotIn(bad_field, fields)
+                    self.assertNotIn(
+                        bad_field, fields,
+                        f"{bad_field} must not be in {stream_name} — use the dedicated "
+                        f"conversion stream instead (GAQL selectable_with restriction)"
+                    )
 
 
 class TestUniversalAnalyticsMetricsRemoved(unittest.TestCase):
@@ -255,8 +327,8 @@ class TestTrueviewFieldsRenamed(unittest.TestCase):
                 self.assertIn(f, KEYWORDS_PERFORMANCE_REPORT_FIELDS)
 
 
-class TestNewConversionStreams(unittest.TestCase):
-    """Three new conversion report streams must exist with correct fields."""
+class TestConversionStreams(unittest.TestCase):
+    """All 20 dedicated conversion streams must have the required fields and be registered."""
 
     REQUIRED_CONVERSION_METRICS = [
         "metrics.all_conversions",
@@ -271,39 +343,39 @@ class TestNewConversionStreams(unittest.TestCase):
         "segments.conversion_action_category",
         "segments.conversion_action_name",
         "segments.date",
-        "segments.device",
         "segments.external_conversion_source",
     ]
+    INCOMPATIBLE_METRICS = [
+        "metrics.all_conversions_from_interactions_rate",
+        "metrics.conversions_from_interactions_rate",
+        "metrics.cost_per_all_conversions",
+        "metrics.cost_per_conversion",
+    ]
 
-    def test_campaign_conversion_report_has_metrics(self):
-        for f in self.REQUIRED_CONVERSION_METRICS:
-            with self.subTest(field=f):
-                self.assertIn(f, CAMPAIGN_CONVERSION_REPORT_FIELDS)
+    def test_all_conversion_streams_have_required_metrics(self):
+        for stream_name, fields in ALL_CONVERSION_REPORT_FIELD_LISTS:
+            for f in self.REQUIRED_CONVERSION_METRICS:
+                with self.subTest(stream=stream_name, field=f):
+                    self.assertIn(f, fields)
 
-    def test_campaign_conversion_report_has_segments(self):
-        for f in self.REQUIRED_CONVERSION_SEGMENTS:
-            with self.subTest(field=f):
-                self.assertIn(f, CAMPAIGN_CONVERSION_REPORT_FIELDS)
+    def test_all_conversion_streams_have_required_segments(self):
+        for stream_name, fields in ALL_CONVERSION_REPORT_FIELD_LISTS:
+            for f in self.REQUIRED_CONVERSION_SEGMENTS:
+                with self.subTest(stream=stream_name, field=f):
+                    self.assertIn(f, fields)
 
-    def test_ad_group_conversion_report_has_metrics(self):
-        for f in self.REQUIRED_CONVERSION_METRICS:
-            with self.subTest(field=f):
-                self.assertIn(f, AD_GROUP_CONVERSION_REPORT_FIELDS)
+    def test_conversion_streams_exclude_incompatible_rate_metrics(self):
+        """Rate/cost metrics are incompatible with conversion_action segments."""
+        for stream_name, fields in ALL_CONVERSION_REPORT_FIELD_LISTS:
+            for bad_field in self.INCOMPATIBLE_METRICS:
+                with self.subTest(stream=stream_name, field=bad_field):
+                    self.assertNotIn(bad_field, fields)
 
-    def test_ad_group_conversion_report_has_segments(self):
-        for f in self.REQUIRED_CONVERSION_SEGMENTS:
-            with self.subTest(field=f):
-                self.assertIn(f, AD_GROUP_CONVERSION_REPORT_FIELDS)
-
-    def test_keywords_conversion_report_has_metrics(self):
-        for f in self.REQUIRED_CONVERSION_METRICS:
-            with self.subTest(field=f):
-                self.assertIn(f, KEYWORDS_CONVERSION_REPORT_FIELDS)
-
-    def test_keywords_conversion_report_has_segments(self):
-        for f in self.REQUIRED_CONVERSION_SEGMENTS:
-            with self.subTest(field=f):
-                self.assertIn(f, KEYWORDS_CONVERSION_REPORT_FIELDS)
+    def test_conversion_streams_exclude_attribution_event_type(self):
+        """segments.conversion_attribution_event_type incompatible with segments.device."""
+        for stream_name, fields in ALL_CONVERSION_REPORT_FIELD_LISTS:
+            with self.subTest(stream=stream_name):
+                self.assertNotIn("segments.conversion_attribution_event_type", fields)
 
     def test_keywords_conversion_report_has_keyword_fields(self):
         keyword_fields = [
@@ -315,32 +387,39 @@ class TestNewConversionStreams(unittest.TestCase):
             with self.subTest(field=f):
                 self.assertIn(f, KEYWORDS_CONVERSION_REPORT_FIELDS)
 
-    def test_conversion_streams_exclude_incompatible_rate_metrics(self):
-        """These rate/cost metrics are incompatible with conversion_action segments."""
-        incompatible = [
-            "metrics.all_conversions_from_interactions_rate",
-            "metrics.conversions_from_interactions_rate",
-            "metrics.cost_per_all_conversions",
-            "metrics.cost_per_conversion",
-        ]
-        for stream_name, fields in CONVERSION_REPORT_FIELD_LISTS:
-            for bad_field in incompatible:
-                with self.subTest(stream=stream_name, field=bad_field):
-                    self.assertNotIn(bad_field, fields)
-
-    def test_conversion_streams_exclude_attribution_event_type(self):
-        """segments.conversion_attribution_event_type incompatible with segments.device."""
-        for stream_name, fields in CONVERSION_REPORT_FIELD_LISTS:
-            with self.subTest(stream=stream_name):
-                self.assertNotIn("segments.conversion_attribution_event_type", fields)
-
-    def test_conversion_streams_registered_in_streams_module(self):
-        import inspect
+    def test_all_20_conversion_streams_registered(self):
         from tap_google_ads import streams as streams_mod
         source = inspect.getsource(streams_mod.initialize_reports)
-        self.assertIn("campaign_conversion_report", source)
-        self.assertIn("ad_group_conversion_report", source)
-        self.assertIn("keywords_conversion_report", source)
+        expected_streams = [
+            "campaign_conversion_report",
+            "ad_group_conversion_report",
+            "keywords_conversion_report",
+            "account_conversion_report",
+            "ad_conversion_report",
+            "age_range_conversion_report",
+            "ad_group_audience_conversion_report",
+            "campaign_audience_conversion_report",
+            "display_keyword_conversion_report",
+            "display_topics_conversion_report",
+            "expanded_landing_page_conversion_report",
+            "gender_conversion_report",
+            "geo_conversion_report",
+            "keywordless_query_conversion_report",
+            "landing_page_conversion_report",
+            "placement_conversion_report",
+            "search_query_conversion_report",
+            "shopping_conversion_report",
+            "user_location_conversion_report",
+            "video_conversion_report",
+        ]
+        for stream_name in expected_streams:
+            with self.subTest(stream=stream_name):
+                self.assertIn(stream_name, source)
+
+    def test_keywordless_query_conversion_has_no_device_segment(self):
+        """dynamic_search_ads_search_term_view does not support segments.device
+        so the keywordless conversion stream must omit it."""
+        self.assertNotIn("segments.device", KEYWORDLESS_QUERY_CONVERSION_REPORT_FIELDS)
 
 
 if __name__ == "__main__":
