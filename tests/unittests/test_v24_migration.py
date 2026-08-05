@@ -291,6 +291,35 @@ class TestCampaignDateFieldsRenamed(unittest.TestCase):
     def test_old_start_date_absent_from_campaign_performance(self):
         self.assertNotIn("campaign.start_date", CAMPAIGN_PERFORMANCE_REPORT_FIELDS)
 
+    def test_base_stream_renames_start_date_time_to_start_date(self):
+        """BaseStream.transform_keys must apply FIELD_ALIASES for attribute fields so
+        the campaigns core stream column stays 'start_date' after the v24 rename."""
+        from tap_google_ads.streams import BaseStream
+        from unittest.mock import patch
+
+        with patch.object(BaseStream, "extract_field_information"), \
+             patch.object(BaseStream, "create_full_schema"), \
+             patch.object(BaseStream, "set_stream_schema"), \
+             patch.object(BaseStream, "format_field_names"), \
+             patch.object(BaseStream, "build_stream_metadata"):
+            stream = BaseStream.__new__(BaseStream)
+            stream.google_ads_resource_names = ["campaign"]
+
+        raw_api_response = {
+            "campaign": {
+                "id": 123,
+                "name": "Test Campaign",
+                "start_date_time": "2024-01-01",
+                "end_date_time": "2024-12-31",
+            }
+        }
+        result = stream.transform_keys(raw_api_response)
+
+        self.assertIn("start_date", result, "start_date_time must be renamed to start_date")
+        self.assertIn("end_date", result, "end_date_time must be renamed to end_date")
+        self.assertNotIn("start_date_time", result, "raw start_date_time must not survive")
+        self.assertNotIn("end_date_time", result, "raw end_date_time must not survive")
+
 
 class TestTrueviewFieldsRenamed(unittest.TestCase):
     """Old v21 TrueView field names must not appear; new names are mapped via FIELD_ALIASES."""

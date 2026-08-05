@@ -425,6 +425,16 @@ class BaseStream:  # pylint: disable=too-many-instance-attributes
         if "type_" in transformed_message:
             transformed_message["type"] = transformed_message.pop("type_")
 
+        for gaql_field, alias in report_definitions.FIELD_ALIASES.items():
+            parts = gaql_field.split(".")
+            if parts[0] in {"metrics", "segments"}:
+                continue
+            raw_key = parts[1]
+            resource_prefix = parts[0] + "_"
+            core_alias = alias[len(resource_prefix):] if alias.startswith(resource_prefix) else alias
+            if raw_key in transformed_message:
+                transformed_message[core_alias] = transformed_message.pop(raw_key)
+
         return transformed_message
 
     def sync(self, sdk_client, customer, stream, config, state, query_limit): # pylint: disable=unused-argument
