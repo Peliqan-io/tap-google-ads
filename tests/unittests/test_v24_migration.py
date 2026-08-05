@@ -291,19 +291,41 @@ class TestCampaignDateFieldsRenamed(unittest.TestCase):
     def test_old_start_date_absent_from_campaign_performance(self):
         self.assertNotIn("campaign.start_date", CAMPAIGN_PERFORMANCE_REPORT_FIELDS)
 
-    def test_base_stream_renames_start_date_time_to_start_date(self):
-        """BaseStream.transform_keys must apply FIELD_ALIASES for attribute fields so
-        the campaigns core stream column stays 'start_date' after the v24 rename."""
+    def test_base_stream_schema_and_record_agree_for_date_renames(self):
+        """Both format_field_names (schema) and transform_keys (record) must use the
+        alias name so that transformer.transform does not silently drop the field."""
         from tap_google_ads.streams import BaseStream
         from unittest.mock import patch
 
         with patch.object(BaseStream, "extract_field_information"), \
              patch.object(BaseStream, "create_full_schema"), \
              patch.object(BaseStream, "set_stream_schema"), \
-             patch.object(BaseStream, "format_field_names"), \
              patch.object(BaseStream, "build_stream_metadata"):
             stream = BaseStream.__new__(BaseStream)
             stream.google_ads_resource_names = ["campaign"]
+
+        # Minimal schema mirroring what the v24 API returns for the campaign resource
+        stream.full_schema = {
+            "properties": {
+                "campaign": {
+                    "properties": {
+                        "id": {"type": ["null", "integer"]},
+                        "name": {"type": ["null", "string"]},
+                        "start_date_time": {"type": ["null", "string"]},
+                        "end_date_time": {"type": ["null", "string"]},
+                    }
+                }
+            }
+        }
+        stream.stream_schema = stream.full_schema["properties"]["campaign"]
+
+        stream.format_field_names()
+
+        schema_keys = set(stream.stream_schema["properties"].keys())
+        self.assertIn("start_date", schema_keys, "schema must use alias name")
+        self.assertIn("end_date", schema_keys, "schema must use alias name")
+        self.assertNotIn("start_date_time", schema_keys, "raw v24 name must not appear in schema")
+        self.assertNotIn("end_date_time", schema_keys, "raw v24 name must not appear in schema")
 
         raw_api_response = {
             "campaign": {
@@ -314,11 +336,133 @@ class TestCampaignDateFieldsRenamed(unittest.TestCase):
             }
         }
         result = stream.transform_keys(raw_api_response)
+        record_keys = set(result.keys())
 
-        self.assertIn("start_date", result, "start_date_time must be renamed to start_date")
-        self.assertIn("end_date", result, "end_date_time must be renamed to end_date")
-        self.assertNotIn("start_date_time", result, "raw start_date_time must not survive")
-        self.assertNotIn("end_date_time", result, "raw end_date_time must not survive")
+        self.assertIn("start_date", record_keys, "record must use alias name")
+        self.assertIn("end_date", record_keys, "record must use alias name")
+        self.assertNotIn("start_date_time", record_keys, "raw v24 name must not survive in record")
+        self.assertNotIn("end_date_time", record_keys, "raw v24 name must not survive in record")
+
+        self.assertEqual(schema_keys, record_keys,
+                         "schema and record keys must agree so transformer.transform keeps all fields")
+
+    def test_base_stream_does_not_apply_campaign_aliases_to_ad_group_ad(self):
+        """Ad group ad has its own start_date_time/end_date_time in v24. The campaign
+        alias loop must not rename them because the resource does not match."""
+        from tap_google_ads.streams import BaseStream
+        from unittest.mock import patch
+
+        with patch.object(BaseStream, "extract_field_information"), \
+             patch.object(BaseStream, "create_full_schema"), \
+             patch.object(BaseStream, "set_stream_schema"), \
+             patch.object(BaseStream, "format_field_names"), \
+             patch.object(BaseStream, "build_stream_metadata"):
+            stream = BaseStream.__new__(BaseStream)
+            stream.google_ads_resource_names = ["ad_group_ad"]
+
+        raw_api_response = {
+            "ad_group_ad": {
+                "ad": {"id": 456},
+                "start_date_time": "2024-01-01",
+                "end_date_time": "2024-12-31",
+                "status": "ENABLED",
+            }
+        }
+        result = stream.transform_keys(raw_api_response)
+
+        self.assertIn("start_date_time", result,
+                      "ad_group_ad date fields must not be renamed by a campaign alias")
+        self.assertIn("end_date_time", result,
+                      "ad_group_ad date fields must not be renamed by a campaign alias")
+        self.assertNotIn("start_date", result)
+        self.assertNotIn("end_date", result)
+
+    def test_build_stream_metadata_uses_alias_as_key(self):
+        """build_stream_metadata must store the alias name as the metadata key so the
+        catalog property name (start_date) aligns with the schema property name."""
+        from tap_google_ads.streams import BaseStream
+        from unittest.mock import patch
+
+        with patch.object(BaseStream, "extract_field_information"), \
+             patch.object(BaseStream, "create_full_schema"), \
+             patch.object(BaseStream, "set_stream_schema"), \
+             patch.object(BaseStream, "format_field_names"):
+            stream = BaseStream.__new__(BaseStream)
+            stream.google_ads_resource_names = ["campaign"]
+
+        stream.stream_metadata = {}
+        stream.primary_keys = ["id"]
+        stream.automatic_keys = {"customer_id"}
+        stream.resource_object = {"name": "campaign"}
+        stream.resource_fields = {
+            "campaign.start_date_time": {
+                "field_details": {
+                    "category": "ATTRIBUTE",
+                    "name": "campaign.start_date_time",
+                    "selectable": True,
+                },
+                "incompatible_fields": [],
+            },
+            "campaign.id": {
+                "field_details": {
+                    "category": "ATTRIBUTE",
+                    "name": "campaign.id",
+                    "selectable": True,
+                },
+                "incompatible_fields": [],
+            },
+        }
+
+        stream.build_stream_metadata()
+
+        self.assertIn(("properties", "start_date"), stream.stream_metadata,
+                      "metadata key must use alias name to match schema property")
+        self.assertNotIn(("properties", "start_date_time"), stream.stream_metadata,
+                         "raw v24 name must not appear as metadata key")
+        api_names = stream.stream_metadata[("properties", "start_date")]["tap-google-ads.api-field-names"]
+        self.assertEqual(api_names, ["campaign.start_date_time"],
+                         "api-field-names must still point to the real v24 GAQL field")
+
+    def test_transformer_does_not_drop_date_fields_after_rename(self):
+        """End-to-end: format_field_names + transform_keys + Transformer.transform must
+        all agree so that start_date and end_date are present in the final output."""
+        from tap_google_ads.streams import BaseStream
+        from singer import Transformer
+        from unittest.mock import patch
+
+        with patch.object(BaseStream, "extract_field_information"), \
+             patch.object(BaseStream, "create_full_schema"), \
+             patch.object(BaseStream, "set_stream_schema"), \
+             patch.object(BaseStream, "build_stream_metadata"):
+            stream = BaseStream.__new__(BaseStream)
+            stream.google_ads_resource_names = ["campaign"]
+
+        stream.full_schema = {
+            "properties": {
+                "campaign": {
+                    "properties": {
+                        "id": {"type": ["null", "integer"]},
+                        "name": {"type": ["null", "string"]},
+                        "start_date_time": {"type": ["null", "string"]},
+                        "end_date_time": {"type": ["null", "string"]},
+                    }
+                }
+            }
+        }
+        stream.stream_schema = stream.full_schema["properties"]["campaign"]
+        stream.format_field_names()
+
+        schema = {"type": ["null", "object"], "properties": stream.stream_schema["properties"]}
+        raw = {"campaign": {"id": 1, "name": "Test", "start_date_time": "2024-01-01", "end_date_time": "2024-12-31"}}
+        record = stream.transform_keys(raw)
+
+        with Transformer() as transformer:
+            result = transformer.transform(record, schema, {})
+
+        self.assertIn("start_date", result, "start_date must survive transformer.transform")
+        self.assertIn("end_date", result, "end_date must survive transformer.transform")
+        self.assertEqual(result["start_date"], "2024-01-01")
+        self.assertEqual(result["end_date"], "2024-12-31")
 
 
 class TestTrueviewFieldsRenamed(unittest.TestCase):

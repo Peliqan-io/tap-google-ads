@@ -325,10 +325,7 @@ class BaseStream:  # pylint: disable=too-many-instance-attributes
         self.stream_schema = self.full_schema["properties"][google_ads_name]
 
     def format_field_names(self):
-        """This function does two things:
-        1. Appends a `resource_name` to an id field if it is the id of an attributed resource
-        2. Lifts subfields of `ad_group_ad.ad` into `ad_group_ad`
-        """
+
         for resource_name, schema in self.full_schema["properties"].items():
             # ads stream is special since all of the ad fields are nested under ad_group_ad.ad
             # we need to bump the fields up a level so they are selectable
@@ -343,6 +340,19 @@ class BaseStream:  # pylint: disable=too-many-instance-attributes
                 and "id" in schema["properties"]
             ):
                 self.stream_schema["properties"][resource_name + "_id"] = schema["properties"]["id"]
+
+        current_resource = self.google_ads_resource_names[0]
+        for gaql_field, alias in report_definitions.FIELD_ALIASES.items():
+            parts = gaql_field.split(".")
+            if parts[0] in {"metrics", "segments"}:
+                continue
+            if parts[0] != current_resource:
+                continue
+            raw_key = parts[1]
+            resource_prefix = parts[0] + "_"
+            core_alias = alias[len(resource_prefix):] if alias.startswith(resource_prefix) else alias
+            if raw_key in self.stream_schema["properties"]:
+                self.stream_schema["properties"][core_alias] = self.stream_schema["properties"].pop(raw_key)
 
     def build_stream_metadata(self):
         self.stream_metadata = {
@@ -366,7 +376,12 @@ class BaseStream:  # pylint: disable=too-many-instance-attributes
                     field = field.split(".")[2]
                 else:
                     if resource_matches:
+                        gaql_name = field
                         field = field.split(".")[1]
+                        if gaql_name in report_definitions.FIELD_ALIASES:
+                            alias = report_definitions.FIELD_ALIASES[gaql_name]
+                            resource_prefix = self.google_ads_resource_names[0] + "_"
+                            field = alias[len(resource_prefix):] if alias.startswith(resource_prefix) else alias
                     elif is_id_field:
                         field = field.replace(".", "_")
 
@@ -428,6 +443,8 @@ class BaseStream:  # pylint: disable=too-many-instance-attributes
         for gaql_field, alias in report_definitions.FIELD_ALIASES.items():
             parts = gaql_field.split(".")
             if parts[0] in {"metrics", "segments"}:
+                continue
+            if parts[0] != self.google_ads_resource_names[0]:
                 continue
             raw_key = parts[1]
             resource_prefix = parts[0] + "_"
