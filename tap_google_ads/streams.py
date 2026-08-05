@@ -325,7 +325,11 @@ class BaseStream:  # pylint: disable=too-many-instance-attributes
         self.stream_schema = self.full_schema["properties"][google_ads_name]
 
     def format_field_names(self):
-
+        """
+        1. Appends a `resource_name` to an id field if it is the id of an attributed resource
+        2. Lifts subfields of `ad_group_ad.ad` into `ad_group_ad`
+        3. Applies FIELD_ALIASES renames to schema properties to match transform_keys
+        """
         for resource_name, schema in self.full_schema["properties"].items():
             # ads stream is special since all of the ad fields are nested under ad_group_ad.ad
             # we need to bump the fields up a level so they are selectable
