@@ -14,7 +14,7 @@ from . import report_definitions
 
 LOGGER = singer.get_logger()
 
-API_VERSION = "v21"
+API_VERSION = "v24"
 
 API_PARAMETERS = {
     "omit_unselected_resource_names": "true"
@@ -325,9 +325,10 @@ class BaseStream:  # pylint: disable=too-many-instance-attributes
         self.stream_schema = self.full_schema["properties"][google_ads_name]
 
     def format_field_names(self):
-        """This function does two things:
+        """
         1. Appends a `resource_name` to an id field if it is the id of an attributed resource
         2. Lifts subfields of `ad_group_ad.ad` into `ad_group_ad`
+        3. Applies FIELD_ALIASES renames to schema properties to match transform_keys
         """
         for resource_name, schema in self.full_schema["properties"].items():
             # ads stream is special since all of the ad fields are nested under ad_group_ad.ad
@@ -343,6 +344,19 @@ class BaseStream:  # pylint: disable=too-many-instance-attributes
                 and "id" in schema["properties"]
             ):
                 self.stream_schema["properties"][resource_name + "_id"] = schema["properties"]["id"]
+
+        current_resource = self.google_ads_resource_names[0]
+        for gaql_field, alias in report_definitions.FIELD_ALIASES.items():
+            parts = gaql_field.split(".")
+            if parts[0] in {"metrics", "segments"}:
+                continue
+            if parts[0] != current_resource:
+                continue
+            raw_key = parts[1]
+            resource_prefix = parts[0] + "_"
+            core_alias = alias[len(resource_prefix):] if alias.startswith(resource_prefix) else alias
+            if raw_key in self.stream_schema["properties"]:
+                self.stream_schema["properties"][core_alias] = self.stream_schema["properties"].pop(raw_key)
 
     def build_stream_metadata(self):
         self.stream_metadata = {
@@ -366,7 +380,12 @@ class BaseStream:  # pylint: disable=too-many-instance-attributes
                     field = field.split(".")[2]
                 else:
                     if resource_matches:
+                        gaql_name = field
                         field = field.split(".")[1]
+                        if gaql_name in report_definitions.FIELD_ALIASES:
+                            alias = report_definitions.FIELD_ALIASES[gaql_name]
+                            resource_prefix = self.google_ads_resource_names[0] + "_"
+                            field = alias[len(resource_prefix):] if alias.startswith(resource_prefix) else alias
                     elif is_id_field:
                         field = field.replace(".", "_")
 
@@ -424,6 +443,18 @@ class BaseStream:  # pylint: disable=too-many-instance-attributes
 
         if "type_" in transformed_message:
             transformed_message["type"] = transformed_message.pop("type_")
+
+        for gaql_field, alias in report_definitions.FIELD_ALIASES.items():
+            parts = gaql_field.split(".")
+            if parts[0] in {"metrics", "segments"}:
+                continue
+            if parts[0] != self.google_ads_resource_names[0]:
+                continue
+            raw_key = parts[1]
+            resource_prefix = parts[0] + "_"
+            core_alias = alias[len(resource_prefix):] if alias.startswith(resource_prefix) else alias
+            if raw_key in transformed_message:
+                transformed_message[core_alias] = transformed_message.pop(raw_key)
 
         return transformed_message
 
@@ -623,9 +654,13 @@ class ReportStream(BaseStream):
                     for ad_field_name, ad_field_schema in data_type["properties"].items():
                         self.stream_schema["properties"][ad_field_name] = ad_field_schema
                 elif resource_name not in {"metrics", "segments"}:
-                    self.stream_schema["properties"][f"{resource_name}_{field_name}"] = data_type
+                    gaql_field = f"{resource_name}.{field_name}"
+                    catalog_name = report_definitions.FIELD_ALIASES.get(gaql_field, f"{resource_name}_{field_name}")
+                    self.stream_schema["properties"][catalog_name] = data_type
                 else:
-                    self.stream_schema["properties"][field_name] = data_type
+                    gaql_field = f"{resource_name}.{field_name}"
+                    catalog_name = report_definitions.FIELD_ALIASES.get(gaql_field, field_name)
+                    self.stream_schema["properties"][catalog_name] = data_type
 
     def build_stream_metadata(self):
         self.stream_metadata = {
@@ -643,8 +678,11 @@ class ReportStream(BaseStream):
         for report_field in self.fields:
             # Transform the field name to match the schema
             is_metric_or_segment = report_field.startswith("metrics.") or report_field.startswith("segments.")
+            # Use alias if defined (keeps backward-compatible catalog names for renamed v24 fields)
+            if report_field in report_definitions.FIELD_ALIASES:
+                transformed_field_name = report_definitions.FIELD_ALIASES[report_field]
             # Transform ad_group_ad.ad.x fields to just x to reflect ad_group_ads schema
-            if report_field.startswith("ad_group_ad.ad."):
+            elif report_field.startswith("ad_group_ad.ad."):
                 transformed_field_name = report_field.split(".")[2]
             elif not is_metric_or_segment:
                 transformed_field_name = "_".join(report_field.split(".")[:2])
@@ -654,13 +692,23 @@ class ReportStream(BaseStream):
             # metadata_key = ("properties", transformed_field_name)
             # Base metadata for every field
             if ("properties", transformed_field_name) not in self.stream_metadata:
+                # Fall back to derived behavior when the field service doesn't return
+                # the field for this resource (e.g. segments.slot on a customer report)
+                if report_field in self.behavior:
+                    field_behavior = self.behavior[report_field]
+                elif report_field.startswith("segments."):
+                    field_behavior = "SEGMENT"
+                elif report_field.startswith("metrics."):
+                    field_behavior = "METRIC"
+                else:
+                    field_behavior = "ATTRIBUTE"
                 self.stream_metadata[("properties", transformed_field_name)] = {
                     "fieldExclusions": [],
-                    "behavior": self.behavior[report_field],
+                    "behavior": field_behavior,
                 }
 
                 # Transform field exclusion names so they match the schema
-                for field_name in self.field_exclusions[report_field]:
+                for field_name in self.field_exclusions.get(report_field, []):
                     is_metric_or_segment = field_name.startswith("metrics.") or field_name.startswith("segments.")
                     if not is_metric_or_segment:
                         new_field_name = field_name.replace(".", "_")
@@ -670,7 +718,7 @@ class ReportStream(BaseStream):
                     self.stream_metadata[("properties", transformed_field_name)]["fieldExclusions"].append(new_field_name)
 
             # Add inclusion metadata
-            if self.behavior[report_field]:
+            if self.behavior.get(report_field):
                 inclusion = "available"
                 if transformed_field_name in (self.automatic_keys):
                     inclusion = "automatic"
@@ -704,6 +752,13 @@ class ReportStream(BaseStream):
                     {f"{resource_name}_{key}": sub_value
                      for key, sub_value in value.items()}
                 )
+
+        # Rename record keys to match aliased catalog property names
+        for gaql_field, alias in report_definitions.FIELD_ALIASES.items():
+            parts = gaql_field.split(".")
+            record_key = parts[1] if parts[0] in {"metrics", "segments"} else "_".join(parts[:2])
+            if record_key in transformed_message:
+                transformed_message[alias] = transformed_message.pop(record_key)
 
         return transformed_message
     
@@ -1155,5 +1210,145 @@ def initialize_reports(resource_schema):
             resource_schema,
             ["_sdc_record_hash"],
             {"video_id"},
+        ),
+        "campaign_conversion_report": ReportStream(
+            report_definitions.CAMPAIGN_CONVERSION_REPORT_FIELDS,
+            ["campaign"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"campaign_id", "date", "conversion_action", "conversion_action_category", "conversion_action_name", "external_conversion_source", "device"},
+        ),
+        "ad_group_conversion_report": ReportStream(
+            report_definitions.AD_GROUP_CONVERSION_REPORT_FIELDS,
+            ["ad_group"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"ad_group_id", "date", "conversion_action", "conversion_action_category", "conversion_action_name", "external_conversion_source", "device"},
+        ),
+        "keywords_conversion_report": ReportStream(
+            report_definitions.KEYWORDS_CONVERSION_REPORT_FIELDS,
+            ["keyword_view"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"ad_group_criterion_criterion_id", "ad_group_id", "date", "conversion_action", "conversion_action_category", "conversion_action_name", "external_conversion_source", "device"},
+        ),
+        "account_conversion_report": ReportStream(
+            report_definitions.ACCOUNT_CONVERSION_REPORT_FIELDS,
+            ["customer"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"date", "conversion_action", "conversion_action_category", "conversion_action_name", "external_conversion_source", "device"},
+        ),
+        "ad_conversion_report": ReportStream(
+            report_definitions.AD_CONVERSION_REPORT_FIELDS,
+            ["ad_group_ad"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"ad_group_ad_ad_id", "ad_group_id", "date", "conversion_action", "conversion_action_category", "conversion_action_name", "external_conversion_source", "device"},
+        ),
+        "age_range_conversion_report": ReportStream(
+            report_definitions.AGE_RANGE_CONVERSION_REPORT_FIELDS,
+            ["age_range_view"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"ad_group_criterion_criterion_id", "ad_group_id", "date", "conversion_action", "conversion_action_category", "conversion_action_name", "external_conversion_source", "device"},
+        ),
+        "ad_group_audience_conversion_report": ReportStream(
+            report_definitions.AD_GROUP_AUDIENCE_CONVERSION_REPORT_FIELDS,
+            ["ad_group_audience_view"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"ad_group_criterion_criterion_id", "ad_group_id", "date", "conversion_action", "conversion_action_category", "conversion_action_name", "external_conversion_source", "device"},
+        ),
+        "campaign_audience_conversion_report": ReportStream(
+            report_definitions.CAMPAIGN_AUDIENCE_CONVERSION_REPORT_FIELDS,
+            ["campaign_audience_view"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"campaign_criterion_criterion_id", "campaign_id", "date", "conversion_action", "conversion_action_category", "conversion_action_name", "external_conversion_source", "device"},
+        ),
+        "display_keyword_conversion_report": ReportStream(
+            report_definitions.DISPLAY_KEYWORD_CONVERSION_REPORT_FIELDS,
+            ["display_keyword_view"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"ad_group_criterion_criterion_id", "ad_group_id", "date", "conversion_action", "conversion_action_category", "conversion_action_name", "external_conversion_source", "device"},
+        ),
+        "display_topics_conversion_report": ReportStream(
+            report_definitions.DISPLAY_TOPICS_CONVERSION_REPORT_FIELDS,
+            ["topic_view"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"ad_group_criterion_criterion_id", "ad_group_id", "date", "conversion_action", "conversion_action_category", "conversion_action_name", "external_conversion_source", "device"},
+        ),
+        "expanded_landing_page_conversion_report": ReportStream(
+            report_definitions.EXPANDED_LANDING_PAGE_CONVERSION_REPORT_FIELDS,
+            ["expanded_landing_page_view"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"campaign_id", "date", "conversion_action", "conversion_action_category", "conversion_action_name", "external_conversion_source", "device"},
+        ),
+        "gender_conversion_report": ReportStream(
+            report_definitions.GENDER_CONVERSION_REPORT_FIELDS,
+            ["gender_view"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"ad_group_criterion_criterion_id", "ad_group_id", "date", "conversion_action", "conversion_action_category", "conversion_action_name", "external_conversion_source", "device"},
+        ),
+        "geo_conversion_report": ReportStream(
+            report_definitions.GEO_CONVERSION_REPORT_FIELDS,
+            ["geographic_view"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"campaign_id", "date", "conversion_action", "conversion_action_category", "conversion_action_name", "external_conversion_source", "device"},
+        ),
+        "keywordless_query_conversion_report": ReportStream(
+            report_definitions.KEYWORDLESS_QUERY_CONVERSION_REPORT_FIELDS,
+            ["dynamic_search_ads_search_term_view"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"ad_group_id", "campaign_id", "date", "conversion_action", "conversion_action_category", "conversion_action_name", "external_conversion_source"},
+        ),
+        "landing_page_conversion_report": ReportStream(
+            report_definitions.LANDING_PAGE_CONVERSION_REPORT_FIELDS,
+            ["landing_page_view"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"campaign_id", "date", "conversion_action", "conversion_action_category", "conversion_action_name", "external_conversion_source", "device"},
+        ),
+        "placement_conversion_report": ReportStream(
+            report_definitions.PLACEMENT_CONVERSION_REPORT_FIELDS,
+            ["managed_placement_view"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"ad_group_criterion_criterion_id", "ad_group_id", "date", "conversion_action", "conversion_action_category", "conversion_action_name", "external_conversion_source", "device"},
+        ),
+        "search_query_conversion_report": ReportStream(
+            report_definitions.SEARCH_QUERY_CONVERSION_REPORT_FIELDS,
+            ["search_term_view"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"ad_group_id", "campaign_id", "date", "conversion_action", "conversion_action_category", "conversion_action_name", "external_conversion_source", "device"},
+        ),
+        "shopping_conversion_report": ReportStream(
+            report_definitions.SHOPPING_CONVERSION_REPORT_FIELDS,
+            ["shopping_performance_view"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"campaign_id", "date", "conversion_action", "conversion_action_category", "conversion_action_name", "external_conversion_source", "device"},
+        ),
+        "user_location_conversion_report": ReportStream(
+            report_definitions.USER_LOCATION_CONVERSION_REPORT_FIELDS,
+            ["user_location_view"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"campaign_id", "date", "conversion_action", "conversion_action_category", "conversion_action_name", "external_conversion_source", "device"},
+        ),
+        "video_conversion_report": ReportStream(
+            report_definitions.VIDEO_CONVERSION_REPORT_FIELDS,
+            ["video"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"video_id", "date", "conversion_action", "conversion_action_category", "conversion_action_name", "external_conversion_source", "device"},
         ),
     }
