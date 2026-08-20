@@ -86,6 +86,13 @@ def get_managed_customers(config):
 
     for client in query_customers:
         customers.append({"loginCustomerId": manager_account_id, "customerId": client})
+
+    if not customers:
+        raise Exception(
+            "No Google Ads accounts found. Ensure at least one of 'manager_account_id' or 'account_ids' "
+            "is set in your connection configuration and that the provided credentials have access to those accounts."
+        )
+
     return customers
 
 
